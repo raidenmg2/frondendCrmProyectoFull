@@ -1,0 +1,75 @@
+<app-header></app-header>
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="bar-vertical col-4 col-sm-auto">
+      <nav class="menu d-flex d-sm-block justifi-content-center flex-wrap">
+        <a [routerLink]="ROUTER_APP.CONSULTAR_OPORTUNIDADES">
+          <span>Volver</span></a
+        >
+      </nav>
+    </div>
+    <main class="main col">
+      <div class="columna col-12">
+        <div>
+          <!-- Aqui va el contenido de la pagina  -->
+          <div class="container">
+            <div class="row">
+              <h2 class="text-center mt-4">
+                Formulario de creación de nueva oportunidad Comercial
+              </h2>
+              <div class="mx-auto">
+                <form
+                  [formGroup]="oportunidadComercialForm"
+                >
+                  <label for="oportunidad">Oportunidad:</label>
+                  <input
+                    type="text"
+                    formControlName="oportunidad"
+                    placeholder="Ingrese la oportunidad comercial"
+                  />
+
+                  <label for="cliente"
+                    >Elija al cliente de la base de datos:</label
+                  >
+                  <select
+                  class="form-control"
+                  formControlName="cliente"
+                 >
+                  @for (cliente of clientes; track $index) {
+                  <option [value]="cliente">{{ cliente.nombres }}</option>
+                  }
+                </select>
+
+                  <label for="producto"
+                    >Elija el producto de la base de datos:</label
+                  >
+                  <select
+                  class="form-control"
+                  formControlName="producto"
+                 >
+                  @for (producto of productos; track $index) {
+                  <option [value]="producto">{{ producto.nombre }}</option>
+                  }
+                </select>
+
+                  <label for="gestion">Ingrese la gestión a asignar:</label>
+                  <input
+                    type="text"
+                    formControlName="gestion"
+                    placeholder="Ingrese la gestion"
+                  />
+
+                  <button type="button" (click)="crearOportinidad()">Crear Gestion Comercial</button>
+
+
+                </form>
+              </div>
+            </div>
+          </div>
+          <!-- Aqui termina el contenido de la pagina -->
+        </div>
+      </div>
+    </main>
+  </div>
+</div>

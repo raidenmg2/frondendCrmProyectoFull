@@ -1,1 +1,85 @@
-<p>consultar-producto works!</p>
+<app-header></app-header>
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="bar-vertical col-4 col-sm-auto">
+      <nav class="menu d-flex d-sm-block justifi-content-center flex-wrap">
+        <a
+        [routerLink]="[ROUTER_APP.CREAR_PRODUCTOS]"
+          routerLinkActive="router-link-active"
+        
+        > <span>Producto nuevo</span></a>
+       <a
+          [routerLink]="[ROUTER_APP.DASHBOARD]"
+          routerLinkActive="router-link-active"
+          >Volver</a
+        >
+      </nav>
+    </div>
+
+    <main class="main col-10">
+      <div class="columna col-12 container-fluid">
+        <div class="table-responsive table-responsive-lg">
+          <h1 class="text-center">Productos GamesTech</h1>
+          <table class="table table-primary table-striped">
+            <thead id="encabezado">
+              <tr class="table-primary">
+                <th>Id</th>
+                <th>Nombre</th>
+                <th>Precio</th>
+                <th>Caracteristicas Fisicas</th>
+                <th>Caracteristicas Tecnicas</th>
+                <th>Categoria</th>
+                <th>Descripción</th>
+                <th>Distribuidor</th>
+                <th>Estado</th>
+                <th>Usuario</th>
+                <th>Acciones</th>
+              </tr>
+            </thead>
+            <tbody>
+              @for (producto of productos; track $index ) {
+              <tr>
+                <td>{{ producto._id }}</td>
+                <td>{{ producto.nombre }}</td>
+                <td>{{ producto.precio | currency}}</td>
+                <td>
+                  {{ producto.caracteristicasFiscas.tipoControles }}
+                  {{ producto.caracteristicasFiscas.color }}
+                  {{ producto.caracteristicasFiscas.dimensiones }}
+                  {{ producto.caracteristicasFiscas.puertosConectividad }}
+                  
+                </td>
+                <td>
+                  {{producto.caracteristicasTecnicas.almacenamiento}}
+                  {{producto.caracteristicasTecnicas.conectividad}}
+                  {{producto.caracteristicasTecnicas.memoriaRam}}
+                  {{producto.caracteristicasTecnicas.procesador}}
+                  {{producto.caracteristicasTecnicas.resolucionImagen}}
+
+
+                </td>
+                <td>{{ producto.categoria }}</td>
+                <td>{{ producto.descripcion }}</td>
+                <td>{{ producto.distribuidor.razonSocial }}</td>
+                <td>{{ producto.estado }}</td>
+                <td>{{ producto.usuario.nombres }}
+                    {{ producto.usuario.email }}
+                </td>
+
+                <td>
+                  <button type="button" class="btn btn-info">Editar</button>
+                  <button type="button" class="btn btn-primary">
+                    Actualizar
+                  </button>
+                  <button type="button" class="btn btn-danger">Eliminar</button>
+                </td>
+              </tr>
+              }
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </main>
+  </div>
+</div>

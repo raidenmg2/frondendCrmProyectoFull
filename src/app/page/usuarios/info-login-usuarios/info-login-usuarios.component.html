@@ -1,0 +1,90 @@
+<form  [formGroup]="InformacionLoginForm" >
+  <div class="mt-4">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="form-floating mb-3">
+          <input type="text" class="form-control" formControlName="login" placeholder="login" />
+          <label for="login">Login</label>
+        </div>
+      </div>
+      <div class="col-md-12">
+        <div class="form-floating mb-3">
+          <input type="password" class="form-control" formControlName="password" placeholder="login" />
+          <label for="password">Password</label>
+        </div>
+      </div>
+      <div class="col-md-12">
+        <select class="form-control" formControlName="rol">
+            @for (rol of roles; track $index) {
+                <option [value]="rol">{{rol}}</option>
+            }
+
+            </select>
+            <label for="rol">Rol</label>
+    </div>
+
+    </div>
+  </div>
+  <div class="d-flex justify-content-between flex-row mb-5 mt-4">
+    <button class="btn btn-outline-primary" cdkStepperPrevious>
+      <i class="fa fa-angle-left"></i> volver a información de contacto
+    </button>
+    <button type="button" (click)="submitInformacionLogin()" class="btn btn-outline-primary" cdkStepperNext>
+      Siguiente <i class="fa fa-angle-right"></i>
+    </button>
+  </div>
+  </form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <form  [formGroup]="InformacionLoginForm" >
+    <div class="mt-4">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="form-floating mb-3">
+            <input type="text" class="form-control" formControlName="login" placeholder="Nombres" />
+            <label for="login">Login</label>
+          </div>
+        </div>
+        <div class="col-md-12">
+          <div class="form-floating mb-3">
+            <input type="password" class="form-control" formControlName="password" placeholder="Nombres" />
+            <label for="password">Password</label>
+          </div>
+        </div>
+        <div class="col-md-12">
+            <select class="form-control" formControlName="rol">
+                @for (rol of roles; track $index) {
+                    <option [value]="rol">{{rol}}</option>
+                }
+
+                </select>
+                <label for="rol">Rol</label>
+        </div>
+      </div>
+    </div>
+    <div class="d-flex justify-content-between flex-row mb-5 mt-4">
+      <button class="btn btn-outline-primary" cdkStepperPrevious>
+        <i class="fa fa-angle-left"></i> volver a información de contacto
+      </button>
+      <button  type="button"  (click)="submitInformacionLogin()"  class="btn btn-outline-primary" cdkStepperNext>
+        fin <i class="fa fa-angle-right"></i>
+      </button>
+    </div>
+    </form> -->
+    

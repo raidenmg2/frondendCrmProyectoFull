@@ -1,0 +1,56 @@
+<form  [formGroup]="informacionDistribuidorForm" >
+    <div class="mt-4">
+        <div class="row">
+          <div class="col-md-6">
+      
+            <div class="form-floating mb-3 ">
+              <input type="text" class="form-control" formControlName="razonSocial" placeholder="Razon social" />
+              <label for="razonSocial">Razon Social</label>
+            </div>
+          </div> 
+          <div class="col-md-6">
+            <div class="form-floating mb-3">
+              <input type="text" class="form-control" formControlName="nit" placeholder="Numero de identificación tributaria" />
+              <label for="nit">Nit</label>
+            </div>
+      
+          </div>
+          <div class="col-md-6">
+            <div class="form-floating mb-3">
+              <input type="text" class="form-control" formControlName="telefono" placeholder="Telefono" />
+              <label for="telefono">Telefono</label>
+            </div>
+      
+          </div>
+      
+          <div class="col-md-6"> 
+            <div class="form-floating mb-3">
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Direccion"
+                formControlName="direccion"
+              />
+              <label for="direccion">Dirección</label>
+            </div>
+          </div>
+      
+       
+      
+          
+      
+      
+          
+        </div>
+      </div>
+      <div class="d-flex justify-content-between flex-row mb-5 mt-4">
+        <button class="btn btn-outline-primary" cdkStepperPrevious>
+            <i class="fa fa-angle-left"></i> volver a caracteristicas tecnicas
+        </button>
+        <button type="button" (click)="submitInformacionDistribuidor()" class="btn btn-outline-primary" cdkStepperNext>
+           finalizar <i class="fa fa-angle-right"></i>
+        </button>
+    </div>
+      
+    </form>
+    

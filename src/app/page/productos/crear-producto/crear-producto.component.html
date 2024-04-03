@@ -1,1 +1,61 @@
-<p>crear-producto works!</p>
+<app-header></app-header>
+
+<div class="container-fluid">
+    <div class="row">
+      <div class="bar-vertical col-4 col-sm-auto">
+        <nav class="menu d-flex d-sm-block justifi-content-center flex-wrap">
+          <a [routerLink]="ROUTER_APP.CONSULTAR_PRODUCTOS"> <span>Volver</span></a>
+        </nav>
+      </div>
+  
+      <main class="main col">
+        <div class="columna col-12 ">
+          <div>
+            <!-- Aqui va el contenido de la pagina  -->
+            <div class="container" >
+              <div class="row">
+                <h2 class="text-center mt-4">
+                  Formulario de creación producto Nuevo
+                </h2>
+                <div class=" mx-auto">
+                  
+                    <app-stepper [linearModeSelected]="false" #appStepper>
+                      <cdk-step [label]="'Information Basica'">
+                        <app-info-basica-producto
+                          (valoresFormulario)="recibirInfoBasicaProducto($event)"
+                        ></app-info-basica-producto>
+                      </cdk-step>
+
+                      <cdk-step [label]="'Caracteristicas Tecnicas'">
+                        <app-info-caracteristicas-tecnicas
+                          (valoresFormulario)="recibirInfoCaracteristicasTecnicas($event)"
+                        ></app-info-caracteristicas-tecnicas>
+                      </cdk-step>
+                      <cdk-step [label]="'Caracteristicas fisicas'">
+                        <app-info-caracteristicas-fisicas
+                          (valoresFormulario)="recibirInfoCaracteristicasFisicas($event)"
+                        ></app-info-caracteristicas-fisicas>
+                      </cdk-step>
+                     
+                      <cdk-step [label]="'Información distribuidor'">
+                        <app-info-distribuidor
+                          (valoresFormulario)="recibirInfoDistribuidor($event)"
+                        ></app-info-distribuidor>
+                      </cdk-step>
+                      <cdk-step [label]="'fin'">
+                        <app-fin-form-producto></app-fin-form-producto>
+                        <button type="button" (click)="crearProducto()" class="btn btn-outline-primary">
+                          Crear Producto
+                        </button>
+                      </cdk-step>
+                    </app-stepper>
+                 
+                </div>
+              </div>
+            </div>
+            <!-- Aqui termina el contenido de la pagina -->
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>

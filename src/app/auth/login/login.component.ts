@@ -5,9 +5,10 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
-import { AuntenticacionService } from '../../services/autenticacion/autenticacion.service';
+import { AutenticacionService } from '../../services/autenticacion/autenticacion.service';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
+import { ROUTER_APP } from '../../core/enum/router-app.enum';
 // import { ROUTER_APP } from '../../core/enum/router-app.enum';
 
 @Component({
@@ -21,10 +22,13 @@ import Swal from 'sweetalert2';
 
 export class LoginComponent {
   loginForm!: FormGroup;
+  get ROUTER_APP() {
+    return ROUTER_APP;
+  }
 
   constructor(
     private formBuilder: FormBuilder,
-    private autenticacionService: AuntenticacionService,
+    private autenticacionService: AutenticacionService,
     private router: Router
   ) {}
 
@@ -52,12 +56,12 @@ export class LoginComponent {
     this.autenticacionService.login(data).subscribe({
       next: (resp: any) => {
         if (resp && resp.usuario) {
-          const { nombre, login, email } = resp.usuario;
+          const { nombre: nombres, login, email } = resp.usuario;
 
           Swal.fire({
-            html: `Bienvenido ${nombre}`,
+            html: `Bienvenido ${nombres}`,
           }).then(() => {
-            this.router.navigateByUrl('dashBoard');
+            this.router.navigateByUrl(ROUTER_APP.DASHBOARD);
           });
         }
       },

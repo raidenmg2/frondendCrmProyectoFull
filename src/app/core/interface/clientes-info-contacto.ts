@@ -1,10 +1,10 @@
 export interface ClientesInfoContacto {
     /** se definien las propiedades del objeto en este caso la interface */
         
-    direccion: String;
-    ciudadResidencia:String
-    departamentoResidencia: String;
+    direccion: string;
+    ciudadResidencia:string
+    departamentoResidencia: string;
     telefono: Number;
-    email:String
+    email:string
 
 }

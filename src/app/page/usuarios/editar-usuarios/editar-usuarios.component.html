@@ -1,1 +1,55 @@
-<p>editar-usuarios works!</p>
+<app-header></app-header>
+
+
+<div class="container-fluid">
+    <div class="row">
+      <div class="bar-vertical col-4 col-sm-auto">
+        <nav class="menu d-flex d-sm-block justifi-content-center flex-wrap">
+          <a [routerLink]="ROUTER_APP.CONSULTAR_USUARIOS"> <span>Volver</span></a>
+        </nav>
+      </div>
+  
+      <main class="main col">
+        <div class="columna col-12 ">
+          <div>
+            <!-- Aqui va el contenido de la pagina  -->
+            <div class="container" >
+              <div class="row">
+                <h2 class="text-center mt-4">
+                  Editar Usuario
+                </h2>
+                <div class=" mx-auto">
+                  
+                    <app-stepper [linearModeSelected]="false" #appStepper>
+                      <cdk-step [label]="'Information Basica'">
+                        <app-info-basica-usuarios
+                          (valoresFormulario)="recibirInfoBasicaUsuario($event)"
+                        ></app-info-basica-usuarios>
+                      </cdk-step>
+                      <cdk-step [label]="'Information Contacto'">
+                        <app-info-contacto-usuarios
+                          (valoresFormulario)="recibirInfoContactoUsuario($event)"
+                        ></app-info-contacto-usuarios>
+                      </cdk-step>
+                      <cdk-step [label]="'Information login'">
+                        <app-info-login-usuarios
+                          (valoresFormulario)="recibirInfoLoginUsuario($event)"
+                        ></app-info-login-usuarios>
+                      </cdk-step>
+                      <cdk-step [label]="'fin'">
+                        <app-info-login-usuarios-fin-formulario></app-info-login-usuarios-fin-formulario>
+                        <button type="button" (click)="actualizarUsuario()" class="btn btn-outline-primary">
+                          Actualizar Usuario
+                        </button>
+                      </cdk-step>
+                    </app-stepper>
+                 
+                </div>
+              </div>
+            </div>
+            <!-- Aqui termina el contenido de la pagina -->
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>

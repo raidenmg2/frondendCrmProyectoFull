@@ -1,116 +1,56 @@
 
-<nav class="navbar bg-primary" data-bs-theme="dark" style="background-image: linear-gradient(rgb(58, 58, 233), rgb(24, 128, 188));">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#">Navbar</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Features</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Pricing</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link disabled" aria-disabled="true">Disabled</a>
-        </li>
-      </ul>
+<app-header></app-header>
+
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="bar-vertical col-4 col-sm-auto">
+      <nav class="menu d-flex d-sm-block justifi-content-center flex-wrap">
+        <a [routerLink]="ROUTER_APP.CONSULTAR_USUARIOS"> <span>Volver</span></a>
+      </nav>
     </div>
+
+    <main class="main col">
+      <div class="columna col-12 ">
+        <div>
+          <!-- Aqui va el contenido de la pagina  -->
+          <div class="container" >
+            <div class="row">
+              <h2 class="text-center mt-4">
+                Formulario de vinculación Usuario Nuevo
+              </h2>
+              <div class=" mx-auto">
+                
+                  <app-stepper [linearModeSelected]="false" #appStepper>
+                    <cdk-step [label]="'Information Basica'">
+                      <app-info-basica-usuarios
+                        (valoresFormulario)="recibirInfoBasicaUsuario($event)"
+                      ></app-info-basica-usuarios>
+                    </cdk-step>
+                    <cdk-step [label]="'Information Contacto'">
+                      <app-info-contacto-usuarios
+                        (valoresFormulario)="recibirInfoContactoUsuario($event)"
+                      ></app-info-contacto-usuarios>
+                    </cdk-step>
+                    <cdk-step [label]="'Information login'">
+                      <app-info-login-usuarios
+                        (valoresFormulario)="recibirInfoLoginUsuario($event)"
+                      ></app-info-login-usuarios>
+                    </cdk-step>
+                    <cdk-step [label]="'fin'">
+                      <app-info-login-usuarios-fin-formulario></app-info-login-usuarios-fin-formulario>
+                      <button type="button" (click)="crearUsuario()" class="btn btn-outline-primary">
+                        Crear Usuario
+                      </button>
+                    </cdk-step>
+                  </app-stepper>
+               
+              </div>
+            </div>
+          </div>
+          <!-- Aqui termina el contenido de la pagina -->
+        </div>
+      </div>
+    </main>
   </div>
-</nav>
-
-
-
-<div class="row my-5 mx-4">
-  
-  <div class="container">
-    
-    <form class="row g-4 formulario">
-      <div class="col-md-6">
-        <label for="inputName" class="form-label">Nombres</label>
-        <input type="text" class="form-control" id="inputName" placeholder="Primer y segundo nombre">
-      </div>
-      <div class="col-md-6">
-        <label for="inputLastName" class="form-label">Apellidos</label>
-        <input type="text" class="form-control" id="inputLastName" placeholder="Primer y segundo apellido">
-      </div>
-      <div class="col-6">
-        <label for="inputDateOfBirth" class="form-label">Fecha de nacimiento</label>
-        <input type="date" class="form-control" id="inputDateOfBirth" placeholder="fecha de nacimiento">
-      </div>
-      <div class="col-6">
-        <label for="inputCityOfBirth" class="form-label">Ciudad de nacimiento</label>
-        <input type="text" class="form-control" id="inputCtyOfBirth" placeholder="ciudad de nacimiento">
-      </div>
-      <div class="col-6">
-        
-        <label for="floatingSelect" class="form-label">Tipo de documento </label>
-        <select class="form-select" id="floatingSelect" aria-label="Floating label select example">
-          <option selected>------</option>
-          <option value="cc">Cedula de ciudadania</option>
-          <option value="ce">Cedula de extrangenria</option>
-          <option value="ps">Pasaporte</option>
-          <option value="ti">Tarjeta de identidad</option>
-          <option value="rc">Registro civil</option>
-      </select>
-      </div>
-      <div class="col-6">
-        <label for="inputDocumentNum" class="form-label">Numero de documento</label>
-        <input type="text" class="form-control" id="inputDocumentNum" placeholder="Numero de documento">
-      </div>
-      <div class="col-6">
-        <label for="inputCountry" class="form-label">Pais de expedición</label>
-        <input type="text" class="form-control" id="inputCountry" placeholder="Pais de expedicion documento">
-      </div>
-      <div class="col-6">
-        <label for="inputCityOfExpedition" class="form-label">Ciudad de expedición</label>
-        <input type="text" class="form-control" id="inputCityOfExpedition" placeholder="ciudad de expedición documento">
-      </div>
-      <div class="col-6">
-        <label for="inputDateExpedition" class="form-label">Fecha de expedición</label>
-        <input type="date" class="form-control" id="inputDateExpedition"/>
-    </div>
-      <div class="col-6">
-        <label for="floatingSelect1" class="form-label">Estado civil</label>
-        <select class="form-select" id="floatingSelect1" aria-label="Floating label select example">
-          <option selected>------</option>
-          <option value="soltero">Soltero</option>
-          <option value="casado">Casado</option>
-          <option value="divorsiado">Divorciado</option>
-          <option value="viudo">Viudo</option>
-          <option value="rc">Unión libre</option>
-      </select>
-    </div>
-      <div class="col-12">
-        <label for="inputAddress" class="form-label">Dirección</label>
-        <input type="text" class="form-control" id="inputAddress" placeholder="Dirección de domicilio">
-    </div>
-    <div class="col-md-6">
-      <label for="inputCityOfResident" class="form-label">Ciudad de residencia</label>
-      <input type="text" class="form-control" id="inputCityOfResident" placeholder="Ciudad de residencia">
-    </div>
-    <div class="col-md-6">
-      <label for="inputState" class="form-label">Departamento de recidencia</label>
-      <input type="text" class="form-control" id="inputState" placeholder="Departamento de residencia">
-    </div>
-   
-    <div class="col-12">
-      <div class="form-check">
-        <input class="form-check-input" type="checkbox" id="gridCheck">
-        <label class="form-check-label" for="gridCheck">
-          Check me out
-        </label>
-      </div>
-    </div>
-    <div class="col-12">
-      <button type="submit" class="btn btn-primary">Guardar</button>
-    </div>
-  </form>
-</div>  
-  
 </div>

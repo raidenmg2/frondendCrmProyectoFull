@@ -1,4 +1,4 @@
-import { RouterModule, Routes } from '@angular/router';
+import { Routes } from '@angular/router';
 import { HomeComponent } from './page/home/home.component';
 import { DashBoardComponent } from './page/dash-board/dash-board.component';
 import { CrearUsuariosComponent } from './page/usuarios/crear-usuarios/crear-usuarios.component';
@@ -18,111 +18,166 @@ import { CrearClienteComponent } from './page/clientes/crear-cliente/crear-clien
 import { EditarClienteComponent } from './page/clientes/editar-cliente/editar-cliente.component';
 import { ConsultarClienteComponent } from './page/clientes/consultar-cliente/consultar-cliente.component';
 import { EliminarClienteComponent } from './page/clientes/eliminar-cliente/eliminar-cliente.component';
-
-
-
+import { CrearVentaComponent } from './page/ventas/crear-venta/crear-venta.component';
+import { authGuard } from './guards/auth/auth.guard';
+import { ConsultarOportunidadesComponent } from './page/oportunidades/consultarOportunidades/consultar-oportunidades/consultar-oportunidades.component';
+import { CrearOportunidadesComponent } from './page/oportunidades/crearOportunidades/crear-oportunidades/crear-oportunidades.component';
 
 export const routes: Routes = [
+  {
+    path: 'home',
+    title: 'Home',
+    children: [
+      { path: '', component: HomeComponent },
+      // aqui se puede gacer el cambio de contraseña como ruta hija
+    ],
+  },
 
-    {
-        path:'',
-        title: 'Inicio',
-        component: HomeComponent,
-    },
-    {        
-      path:'login',
-      title: 'login',
-      component:LoginComponent ,
+  {
+    path: 'dashboard',
+    title: 'dashboard',
+    canActivate: [authGuard],
+    children: [
+      { path: '', title: 'dashboard', component: DashBoardComponent }, // path por defecto del path padre
+      {
+        path: 'consultarCliente',
+        title: 'consultar Cliente',
+        children: [
+          {
+            path: '',
+            title: 'Consultar Cliente',
+            component: ConsultarClienteComponent,
+          },
+          {
+            path: 'crearCliente',
+            title: 'Vincular cliente',
+            component: CrearClienteComponent,
+          },
+          {
+            path: 'editarCliente',
+            title: 'Editar cliente',
+            component: EditarClienteComponent,
+          },
+          {
+            path: 'eliminarCliente',
+            title: 'Elminar cliente',
+            component: EliminarClienteComponent,
+          },
+        ],
       },
-    {        
-    path:'dashBoard',
-    title: 'Main menu',
-    component: DashBoardComponent,
-    },
-    {
-        path: 'crear-usuario',
-        title: 'crear usuario',
-        component: CrearUsuariosComponent,
-    },
-    {
-        path: 'consultar-usuarios',
+      {
+        path: 'consultarUsuarios',
         title: 'consultar usuario',
-        component: ConsultarUsuariosComponent,
+        children: [
+          {
+            path: '',
+            title: 'Consultar usuario',
+            component: ConsultarUsuariosComponent,
+          },
+          {
+            path: 'crearUsuario',
+            title: 'crear usuario',
+            component: CrearUsuariosComponent,
+          },
+          {
+            path: 'editarUsuarios/:id',
+            title: 'editar usuario',
+            component: EditarUsuariosComponent,
+          },
+          {
+            path: 'eliminarUsuarios',
+            title: 'eliminar usuarios',
+            component: EliminarUsuariosComponent,
+          },
+        ],
       },
 
       {
-        path: 'editar-usuarios',
-        title: 'editar usuario',
-        component: EditarUsuariosComponent,
-      },
-      {
-        path: 'eliminar-usuarios',
-        title: 'eliminar usuarios',
-        component: EliminarUsuariosComponent,
-      },
-      {
-        path: 'crearProducto',
-        title: 'crear productos',
-        component: CrearProductoComponent,
-      }, {
         path: 'consultarProducto',
         title: 'consultar productos',
-        component: ConsultarProductoComponent,
-      },
-      {
-        path: 'editarProducto',
-        title: 'Editar productos',
-        component: EditarProductoComponent,
-      },
-      {
-        path: 'eliminarProducto',
-        title: 'Eliminar productos',
-        component: EliminarProductoComponent,
-      },
-      {
-        path: 'informeVentas',
-        title: 'informe ventas totales',
-        component: InformeVentasComponent,
+        children: [
+          {
+            path: '',
+            title: 'consultar productos',
+            component: ConsultarProductoComponent,
+          },
+          {
+            path: 'crearProducto',
+            title: 'crear productos',
+            component: CrearProductoComponent,
+          },
+          {
+            path: 'editarProducto',
+            title: 'Editar productos',
+            component: EditarProductoComponent,
+          },
+          {
+            path: 'eliminarProducto',
+            title: 'Eliminar productos',
+            component: EliminarProductoComponent,
+          },
+        ],
       },
       {
         path: 'consultaVentas',
         title: 'consulta venta',
-        component: ConsultarVentaComponent,
+        children: [
+          {
+            path: '',
+            title: 'consulta ventas',
+            component: ConsultarVentaComponent,
+          },
+          {
+            path: 'informeVentas',
+            title: 'informe ventas totales',
+            component: InformeVentasComponent,
+          },
+
+          {
+            path: 'editarVenta',
+            title: 'Editar venta',
+            component: EditarVentaComponent,
+          },
+          {
+            path: 'eliminarVenta',
+            title: 'Eliminar Venta',
+            component: EliminarVentaComponent,
+          },
+          {
+            path: 'crearVenta',
+            title: 'Crear Venta',
+            component: CrearVentaComponent,
+          },
+        ],
       },
+
       {
-        path: 'editarVenta',
-        title: 'Editar venta',
-        component: EditarVentaComponent,
-      },
-      {
-        path: 'eliminarVenta',
-        title: 'Eliminar Venta',
-        component: EliminarVentaComponent,
-      },
-      {
-        path: 'crearCliente',
-        title: 'Vincular cliente',
-        component: CrearClienteComponent,
-      },
-      {
-        path: 'editarCliente',
-        title: 'Editar cliente',
-        component: EditarClienteComponent,
-      },
-      {
-        path: 'consultarCliente',
-        title: 'Consultar cliente',
-        component: ConsultarClienteComponent,
-      },
-      {
-        path: 'eliminarCliente',
-        title: 'Elminar cliente',
-        component: EliminarClienteComponent,
-      },
-     
-      
-      
-    
+        path:'consultaOportunidades',
+        title:'Consultar Oportunidades',
+        children:[
+          {
+            path:'',
+            title:'Consultar oportunidades',
+            component: ConsultarOportunidadesComponent,
+          },
+          {
+            path:'crearOportunidades',
+            title:'crearOportunidades',
+            component: CrearOportunidadesComponent,
+          },
+
+
+
+        ]
+
+
+      }
+
+
+
+
+    ],
+  },
+
+  { path: '**', redirectTo: 'home', pathMatch: 'full' }, // si no encuentra la ruta direcciona al login
 ];
-
-

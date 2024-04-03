@@ -1,0 +1,67 @@
+<form  [formGroup]="informacionCaracteristicasFisicasForm" >
+    <div class="mt-4">
+        <div class="row">
+          <div class="col-md-6">
+      
+            <div class="form-floating mb-3 ">
+              <input type="text" class="form-control" formControlName="tipoControles" placeholder="tipo de Controles" />
+              <label for="tipoControles">Tipo de controles</label>
+            </div>
+          </div> 
+          <div class="col-md-6">
+            <div class="form-floating mb-3">
+              <input type="text" class="form-control" formControlName="color" placeholder="Color" />
+              <label for="color">Color</label>
+            </div>
+      
+          </div>
+          <div class="col-md-6">
+            <div class="form-floating mb-3">
+              <input type="text" class="form-control" formControlName="puertosConectividad" placeholder="Puertos y conectividad" />
+              <label for="puertos conectividad">Puertos y conectividad</label>
+            </div>
+      
+          </div>
+      
+          <div class="col-md-6"> 
+            <div class="form-floating mb-3">
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Dimensiones"
+                formControlName="dimensiones"
+              />
+              <label for="dimensiones">Dimensiones</label>
+            </div>
+          </div>
+      
+          <div class="col-md-6"> 
+            <div class="form-floating mb-3">
+              <input
+                type="text"
+                class="form-control"
+                placeholder="peso"
+                formControlName="peso"
+              />
+              <label for="peso">Peso</label>
+            </div>
+      
+            </div>
+      
+          
+      
+      
+          
+        </div>
+      </div>
+      <div class="d-flex justify-content-between flex-row mb-5 mt-4">
+        <button class="btn btn-outline-primary" cdkStepperPrevious>
+            <i class="fa fa-angle-left"></i> volver a información Basica
+        </button>
+        <button type="button" (click)="submitInformacionContacto()" class="btn btn-outline-primary" cdkStepperNext>
+           ingresar información caarcteristicas tecnicas <i class="fa fa-angle-right"></i>
+        </button>
+    </div>
+      
+    </form>
+    

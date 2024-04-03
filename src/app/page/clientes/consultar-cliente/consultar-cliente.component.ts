@@ -6,16 +6,25 @@ import { Subscriber } from 'rxjs';
 import { Router, RouterLink } from '@angular/router';
 import { CrearClienteComponent } from '../crear-cliente/crear-cliente.component';
 import { DashBoardComponent } from '../../dash-board/dash-board.component';
-
+import { ROUTER_APP } from '../../../core/enum/router-app.enum';
+import { HeaderComponent } from '../../../shared/header/header.component';
 
 @Component({
   selector: 'app-consultar-cliente',
   standalone: true,
-  imports: [CrearClienteComponent,DashBoardComponent, RouterLink],
   templateUrl: './consultar-cliente.component.html',
   styleUrl: './consultar-cliente.component.css',
+  imports: [
+    CrearClienteComponent,
+    DashBoardComponent,
+    RouterLink,
+    HeaderComponent,
+  ],
 })
 export class ConsultarClienteComponent implements OnInit {
+  get ROUTER_APP() {
+    return ROUTER_APP;
+  }
   misClientes: Clientes[] = [];
   mostrar: boolean = false;
 
@@ -31,13 +40,23 @@ export class ConsultarClienteComponent implements OnInit {
       this.misClientes = data.clientes;
     });
   }
+  editarClientes(id: number) {
+    this.router.navigateByUrl(`${ROUTER_APP.CREAR_CLIENTES}/${id}`);
+  }
+
+  actualizarClientes(id: number) {
+    this.router.navigateByUrl(`${ROUTER_APP.CREAR_CLIENTES}/${id}`);
+  }
 
   eliminarCliente(idCliente: number): void {
-    this.misClientes = this.misClientes.filter(
-      (cliente) => cliente._id !== idCliente
-    );
-    // this.misClientes.slice(idCliente, 1);
-    // console.log('Eliminar',this.misClientes)
+    this.clienteService.eliminarUnCliente(idCliente).subscribe((resp: any) => {
+      Swal.fire(
+        'eliminado',
+        `se elimino el cliente ${resp.clientes.nombres}`,
+        'success'
+      );
+    });
+   
   }
 
   recibirData(nuevoCliente: Clientes) {
@@ -49,7 +68,7 @@ export class ConsultarClienteComponent implements OnInit {
   }
 
   AgregarCliente() {
-    this.router.navigateByUrl('crearCliente');
+    this.router.navigateByUrl(ROUTER_APP.CREAR_CLIENTES);
   }
   formularioCliente() {
     this.router.navigateByUrl('formularioPrincipalCliente');

@@ -1,150 +1,105 @@
-<nav class="navbar navbar-light bg-light ">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="#" alt="imagen">
-        
-        <img src="./assets/logoIni.png" alt="logo" width="58px" />
-      
-      </a>
-      
-      
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-bs-toggle="offcanvas"
-        data-bs-target="#offcanvasNavbar"
-        aria-controls="offcanvasNavbar"
-      >
-      <span class="navbar-toggler-icon"></span>
-      <img src="./assets/login.png" alt="login" width="58px" />
-      </button>
-      <div
-        class="offcanvas offcanvas-end"
-        tabindex="-1"
-        id="offcanvasNavbar"
-        aria-labelledby="offcanvasNavbarLabel"
-      >
-        <div class="offcanvas-header">
-          <h5 class="offcanvas-title" id="offcanvasNavbarLabel">
-            Offcanvas
-          </h5>
-          <button
-            type="button"
-            class="btn-close text-reset"
-            data-bs-dismiss="offcanvas"
-            aria-label="Close"
-          ></button>
-        </div>
-        <div class="offcanvas-body">
-          <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-            <li class="nav-item">
-              <a
-                class="nav-link active"
-                aria-current="page"
-                href="#"
-                >Home</a
-              >
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Link</a>
-            </li>
-            <li class="nav-item dropdown">
-              <a
-                class="nav-link dropdown-toggle"
-                href="#"
-                id="dropdownId"
-                data-bs-toggle="dropdown"
-                aria-haspopup="true"
-                aria-expanded="false"
-                >Dropdown</a
-              >
-              <div
-                class="dropdown-menu"
-                aria-labelledby="dropdownId"
-              >
-                <a class="dropdown-item" href="#"
-                  >Action 1</a
-                >
-                <a class="dropdown-item" href="#"
-                  >Action 2</a
-                >
-              </div>
-            </li>
-          </ul>
-          <form class="d-flex">
-            <input
-              class="form-control me-2"
-              type="search"
-              placeholder="Search"
-              aria-label="Search"
-            />
-            <button class="btn btn-outline-success" type="submit">
-              Search
-            </button>
-          </form>
-        </div>
-      </div>
+<app-header></app-header>
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="bar-vertical col-4 col-sm-auto">
+      <nav class="menu d-flex d-sm-block justifi-content-center flex-wrap">
+        <a [routerLink]="ROUTER_APP.CREAR_USUARIOS">
+          <span>Vincular usuario nuevo</span></a
+        >
+
+        <a [routerLink]="ROUTER_APP.DASHBOARD">Volver</a>
+      </nav>
     </div>
-  </nav>
-  
-  
-  <div class="container-fluid">
-    <div class="row">
-      <div class="bar-vertical col-4 col-sm-auto">
-        <nav class="menu d-flex d-sm-block justifi-content-center flex-wrap">
-          <a href="consultarUsuarios"> <span>Gestion de usuarios</span></a>
-          <a href="/">Cerrar sesión</a>
-        </nav>
-      </div>
-  
-      <main class="main col-10">
-        <div class="tabla">
-            <!-- <button class="btn btn-success" (click)="AgregarUsuario()">Crear Usuario</button> -->
-          </div>
-            <table >
-                <thead>
-                    <tr>
-                        <th>Id</th>
-                        <th>nombre</th>
-                        <th>email</th>
-                        <th>tipoDocumento</th>
-                        <th>numeroDocumento</th>
-                        <th>Rol</th>
-                        <th>estado</th>
-                        <th>acciones</th>
-                    </tr>           
-                    
-                </thead>
+
+    <main class="main col-10">
+      <div class="columna col-12 container-fluid">
+        <div class="table-responsive table-responsive-lg">
+          <h1 class="text-center">Usuarios GamesTech CRM</h1>
+          <table class="table table-primary table-striped">
+            <thead id="encabezado">
+              <tr class="table-primary">
+                <th>Id</th>
+                <th>Nombres</th>
+                <th>Apellidos</th>
+                <th>Fecha de nacimiento</th>
+                <th>Ciudad de nacimiento</th>
+                <th>tipo de Documento</th>
+                <th>numero de Documento</th>
+                <th>Pais de expedición</th>
+                <th>Ciudad de expedición</th>
+                <th>Fecha de expedición</th>
+                <th>Estado civil</th>
+                <th>direccion</th>
+                <th>Ciudad de residencia</th>
+                <th>Departamento de residencia</th>
+                <th>telefono</th>
+                <th>email</th>
+                <th>Login</th>
+                <th>Rol</th>
+                <th>Actualizar Rol</th>
+                <th>estado</th>
+                <th>acciones</th>
+              </tr>
+            </thead>
             <tbody>
-                <!-- @for (usuario of usuarios; track $index) {
-                    <tr>
-                        <td>{{usuario._id}} </td>
-                        <td> {{usuario.nombre}}</td>
-                        <td> {{usuario.email}}</td>
-                        <td> {{usuario.tipoDocumento}}</td>
-                        <td> {{usuario.numeroDocumento}}</td>
-                        <td> 
-                          <select class="form-control" [(ngModel)]="usuario.rol" (change)="actualizarRol(usuario)">
-                          @for (rol of roles; track $index) {
-                              <option [value]="rol">{{rol}}</option>
-                          }
-      
-                          </select>
-      
-                        </td>
-                        <td> {{usuario.estado}}</td>
-                      
-                         <td>
-                         <button type="button" class="btn btn-info">Editar</button>
-                         <button type="button" class="btn btn-primary">Actualizar</button>
-                         <button type="button" class="btn btn-danger" (click)="eliminarUsuario(usuario._id)" >Eliminar</button>
-                         </td>
-                     
-                               
-                      </tr>
-                    } -->
-                </tbody>
-            </table>
-      </main>
-    </div>
-    <div class="row"></div>
+              @for (usuario of usuarios; track $index) {
+              <tr>
+                <td>{{ usuario._id }}</td>
+                <td>{{ usuario.nombres }}</td>
+                <td>{{ usuario.apellidos }}</td>
+                <td>{{ usuario.fechaNacimiento }}</td>
+                <td>{{ usuario.ciudadNacimiento }}</td>
+                <td>{{ usuario.tipoDocumento }}</td>
+                <td>{{ usuario.numeroDocumento }}</td>
+                <td>{{ usuario.paisExpedicion }}</td>
+                <td>{{ usuario.ciudadExpedicion }}</td>
+                <td>{{ usuario.fechaExpedicion }}</td>
+                <td>{{ usuario.estadoCivil }}</td>
+                <td>{{ usuario.direccion }}</td>
+                <td>{{ usuario.ciudadResidencia }}</td>
+                <td>{{ usuario.departamentoResidencia }}</td>
+                <td>{{ usuario.telefono }}</td>
+                <td>{{ usuario.email }}</td>
+                <td>{{ usuario.login }}</td>
+                <td>{{ usuario.rol }}</td>
+
+                <td>
+                  <select
+                    class="form-control"
+                    [(ngModel)]="usuario.rol"
+                    (change)="actualizarRol(usuario)"
+                  >
+                    @for (rol of roles; track $index) {
+                    <option [value]="rol">{{ rol }}</option>
+                    }
+                  </select>
+                </td>
+                <td>{{ usuario.estado }}</td>
+
+                <td>
+                  <button
+                    type="button"
+                    class="btn btn-info"
+                    (click)="editarUsuarios(usuario._id)"
+                  >
+                    Editar
+                  </button>
+                  
+                  <button
+                    type="button"
+                    class="btn btn-danger"
+                    (click)="eliminarUsuario(usuario._id)"
+                  >
+                    Eliminar
+                  </button>
+                </td>
+              </tr>
+              }
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </main>
   </div>
+</div>

@@ -11,15 +11,15 @@ import { EditarProductoComponent } from '../productos/editar-producto/editar-pro
 import { EliminarProductoComponent } from '../productos/eliminar-producto/eliminar-producto.component';
 
 export const routes: Routes = [
-  {
-    path: '',
-    title: 'Inicio',
-    component: HomeComponent,
-  },
-  {
-    path: 'dashBoard',
-    title: 'Main menu',
-    component: DashBoardComponent,
-  },
+  // {
+  //   path: '',
+  //   title: 'Inicio',
+  //   component: HomeComponent,
+  // },
+  // {
+  //   path: 'dashBoard',
+  //   title: 'Main menu',
+  //   component: DashBoardComponent,
+  // },
     
 ];

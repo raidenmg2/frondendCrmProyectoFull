@@ -1,16 +1,17 @@
 export interface ClientesInfoBasica {
     /** se definien las propiedades del objeto en este caso la interface */
         
-// _id: number;
-nombres: String;
-apellidos:String;
-fechaNacimiento: String;
-ciudadNacimiento: String;
-tipoDocumento: String;
-numeroDocumento: String;
-paisExpedicion: String;
-ciudadExpedicion: String;
-fechaExpedicion: String;
-estadoCivil:String;
+    nombres: string;
+    apellidos:string;
+    fechaNacimiento: string;
+    ciudadNacimiento: string;
+    tipoDocumento: string;
+    numeroDocumento: string;
+    paisExpedicion: string;
+    ciudadExpedicion: string;
+    fechaExpedicion: string;
+    estadoCivil:string;
+    _id?: string;
 
 }
+

@@ -1,11 +1,41 @@
-/* li,
-a {
-  display: inline;
-  color: rgb(238, 229, 229);
-  text-decoration: none;
-  cursor: pointer;
+body {
+  background-color: #f1f1f1;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  margin: 0;
 }
 
-li:hover {
-  background-color: rgba(81, 81, 244, 0.2);
-} */
+.bar {
+  background: rgba(255, 255, 255, 0.4);
+  margin: 0;
+  padding: 0;
+}
+.log {
+  padding-left: 410px;
+}
+.container-fluid {
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.4);
+}
+.dropdown-menu {
+  margin: 17px;
+  background: #262a34;
+  color: white;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.568);
+}
+.menuperfil {
+  color: white;
+}
+
+.menuperfil:focus {
+  background: #23ea6b;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.568);
+}
+
+.cerrar:hever {
+  background-color: red;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.568);
+}
+
+.user {
+  font-size: 35px;
+}

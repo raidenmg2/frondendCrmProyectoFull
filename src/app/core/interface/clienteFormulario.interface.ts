@@ -1,22 +1,22 @@
 export interface ClientesFormularioInterface {
     /** se definien las propiedades del objeto en este caso la interface */
 
-nombres: String;
-apellidos:String;
-fechaNacimiento: String;
-ciudadNacimiento: String;
-tipoDocumento: String;
-numeroDocumento: String;
-paisExpedicion: String;
-ciudadExpedicion: String;
-fechaExpedicion: String;
-estadoCivil:String;
-direccion: String;
-ciudadResidencia:String
-departamentoResidencia: String;
+nombres: string;
+apellidos:string;
+fechaNacimiento: string;
+ciudadNacimiento: string;
+tipoDocumento: string;
+numeroDocumento: string;
+paisExpedicion: string;
+ciudadExpedicion: string;
+fechaExpedicion: string;
+estadoCivil:string;
+direccion: string;
+ciudadResidencia:string
+departamentoResidencia: string;
 telefono: Number;
-email:String;
-actividadEconomica:String;
+email:string;
+actividadEconomica:string;
 estado?:boolean;
 
     }

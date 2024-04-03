@@ -1,11 +1,13 @@
 <header>  
-<nav class="navbar navbar-light bg-succes static-top" >
-  <div class="container-fluid" >
-    <a class="navbar-brand" href="#">
-      <img src="./assets/logoIni.png" alt="logo" width="58px">
-      Video Game Tech CRM
+<nav class="navbar navbar-light bg-light ">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#" alt="imagen">
+      
+      <img src="./assets/logoIni.png" alt="logo" width="58px" />
     
     </a>
+    
+    
     <button
       class="navbar-toggler"
       type="button"
@@ -13,22 +15,22 @@
       data-bs-target="#offcanvasNavbar"
       aria-controls="offcanvasNavbar"
     >
-    Inició de sesión
-    <img src="./assets/login.png" alt="login" width="58px" >
-
+    {{nombreUsuario}}
+    <img src="./assets/login.png" alt="login" width="58px" />
+    <span class="navbar-toggler-icon"></span>
     
-
     </button>
-    <!-- Menu desplegable el start es pa posición start a la derecha y end a la izquierda -->
     <div
-     class="offcanvas offcanvas-start"
+      class="offcanvas offcanvas-end"
       tabindex="-1"
       id="offcanvasNavbar"
       aria-labelledby="offcanvasNavbarLabel"
     >
       <div class="offcanvas-header">
         <h5 class="offcanvas-title" id="offcanvasNavbarLabel">
-          Login
+          <!-- Mostrar usuario logeado -->
+          {{nombreUsuario}}
+          
         </h5>
         <button
           type="button"
@@ -37,7 +39,47 @@
           aria-label="Close"
         ></button>
       </div>
-      <app-login></app-login>
+      <div class="offcanvas-body">
+        <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+          <li class="nav-item">
+            <a
+              class="nav-link active"
+              aria-current="page"
+              href="#"
+              >Home</a
+            >
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Link</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a
+              class="nav-link dropdown-toggle"
+              href="#"
+              id="dropdownId"
+              data-bs-toggle="dropdown"
+              aria-haspopup="true"
+              aria-expanded="false"
+              >Dropdown</a
+            >
+            <div
+              class="dropdown-menu"
+              aria-labelledby="dropdownId"
+            >
+              <a class="dropdown-item" href="#"
+                >Action 1</a
+              >
+              <a class="dropdown-item" href="#"
+                >Action 2</a
+              >
+            </div>
+          </li>
+        </ul>
+
+        <button (click)="cerrarSesion() " class="btn btn-outline-danger"><b>Cerrar sesión</b></button>
+
+
+      </div>
     </div>
   </div>
 </nav>

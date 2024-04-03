@@ -30,7 +30,7 @@ export class InformacionFinancieraComponent implements OnInit{
   
   
 
-  crearInformacionContacto() {
+  crearInformacionFinanciera() {
     const clienteNuevoInfoFinanciera = this.informacionFinancieraForm.value;
     if (this.informacionFinancieraForm.valid) {
       const data: ClientesInfoFinanciera = {

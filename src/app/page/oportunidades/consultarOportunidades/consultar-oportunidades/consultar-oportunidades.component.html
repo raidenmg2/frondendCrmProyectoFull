@@ -1,0 +1,101 @@
+<app-header></app-header>
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="bar-vertical col-4 col-sm-auto">
+      <nav class="menu d-flex d-sm-block justifi-content-center flex-wrap">
+        <a [routerLink]="ROUTER_APP.CREAR_OPORTUNIDADES"> <span>Crear nueva oportunidad</span></a>
+        <a [routerLink]="ROUTER_APP.DASHBOARD">Volver</a>
+      </nav>
+    </div>
+
+    <main class="main col-10">
+     
+        <div class="columna col-12 container-fluid">
+          <div class="table-responsive table-responsive-lg">
+          <h1 class="text-center">Oportunidades comerciales GamesTech</h1>
+          <table class="table table-primary table-striped ">
+            <thead id="encabezado">
+              <tr class="align-bottom">
+                <th>Id</th>
+                <th>Oportunidad</th>
+                <th>Cliente</th>
+                <th>Producto</th>
+                <th>Gestion</th>
+                <th>Usuario</th>
+                <th>acciones</th>
+              </tr>
+            </thead>
+            <tbody>
+              @for (oportunidad of oportunidades; track $index) {
+              <tr class="align-bottom" >
+                <td class="align-top">{{ oportunidad._id }}</td>
+                <td class="align-top">{{ oportunidad.oportunidad }}</td>
+                <td class="align-top">
+                  
+                {{ oportunidad.cliente.nombres }}
+                {{ oportunidad.cliente.apellidos }}
+                {{ oportunidad.cliente.telefono }}
+                {{ oportunidad.cliente.email }}
+                
+              
+              
+              </td>
+                <td class="align-top">
+                  
+                {{ oportunidad.producto.nombre }}
+                {{ oportunidad.producto.categoria }}
+                {{ oportunidad.producto.descripcion }}
+                {{ oportunidad.producto.precio | currency}}
+              
+              
+              
+              </td>
+                <td class="align-top">{{ oportunidad.gestion }}</td>
+                <td class="align-top">
+                  
+                  {{ oportunidad.usuario.nombres}}
+                  {{ oportunidad.usuario.email }}
+                
+                </td>
+                
+                <td class="align-top">
+                  <button 
+                  type="button"
+                  class="btn btn-info"
+                  (click)="editarOportunidad(oportunidad._id)"
+                  
+                  >Editar</button>
+                  <button
+                  type="button"
+                  class="btn btn-primary"
+                  (click)="actualizarOportunidad(oportunidad._id)"
+                  >Actualizar</button>
+                  <button
+                    type="button"
+                    class="btn btn-danger"
+                    (click)="eliminarOportunidad(oportunidad._id)"
+                  >
+                    Eliminar
+                  </button>
+                  <button
+                    type="button"
+                    class="btn btn-success"
+                    
+                  >
+                    Gestionar
+                  </button>
+                </td>
+              </tr>
+              }
+            </tbody>
+          </table>
+        </div>
+        </div>
+      
+    </main>
+
+
+  </div>
+ 
+</div>

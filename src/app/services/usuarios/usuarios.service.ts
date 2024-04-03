@@ -12,6 +12,8 @@ const base_url = environment.base_url;
 export class UsuariosService {
   constructor(private httpClient: HttpClient) {}
 
+
+
   get token(): string {
     return localStorage.getItem('token') || '';
   }
@@ -27,6 +29,12 @@ export class UsuariosService {
   getUsuarios() {
     return this.httpClient.get(`${base_url}/usuario`, this.headers);
   }
+
+  getUnUsuario(id:string) {
+    return this.httpClient.get(`${base_url}/usuario/${id}`, this.headers);
+  }
+
+
   crearUsuarios(usuario: usuariosInterface) {
     return this.httpClient.post(`${base_url}/usuario`, usuario, this.headers);
   }

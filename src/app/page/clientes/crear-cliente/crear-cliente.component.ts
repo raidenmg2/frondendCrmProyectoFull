@@ -12,22 +12,25 @@ import { ClientesFormularioInterface } from '../../../core/interface/clienteForm
 import { ClientesInfoContacto } from '../../../core/interface/clientes-info-contacto';
 import { ClientesInfoFinanciera } from '../../../core/interface/cliente-info-financiera';
 import Swal from 'sweetalert2';
+import { ROUTER_APP } from '../../../core/enum/router-app.enum';
+import { HeaderComponent } from "../../../shared/header/header.component";
 
 @Component({
-  selector: 'app-crear-cliente',
-  standalone: true,
-  templateUrl: './crear-cliente.component.html',
-  styleUrl: './crear-cliente.component.css',
-  imports: [
-    RouterLink,
-    StepperComponent,
-    CdkStepperModule,
-    InformacionBasicaComponent,
-    InformacionContactoComponent,
-    InformacionFinancieraComponent,
-    FinFormularioComponent,
-  ],
-  providers: [{ provide: CdkStepper, useExisting: StepperComponent }],
+    selector: 'app-crear-cliente',
+    standalone: true,
+    templateUrl: './crear-cliente.component.html',
+    styleUrl: './crear-cliente.component.css',
+    providers: [{ provide: CdkStepper, useExisting: StepperComponent }],
+    imports: [
+        RouterLink,
+        StepperComponent,
+        CdkStepperModule,
+        InformacionBasicaComponent,
+        InformacionContactoComponent,
+        InformacionFinancieraComponent,
+        FinFormularioComponent,
+        HeaderComponent
+    ]
 })
 export class CrearClienteComponent implements OnInit {
   @ViewChild(InformacionBasicaComponent)
@@ -36,7 +39,6 @@ export class CrearClienteComponent implements OnInit {
   informacionContactoComponent: InformacionContactoComponent;
   @ViewChild(InformacionFinancieraComponent)
   informacionFinancieraComponent: InformacionFinancieraComponent;
-  /* @ViewChild('appStepper') stepper: CdkStepper; */
   valoresFormBasico: ClientesInfoBasica;
   valoresFormContacto: ClientesInfoContacto;
   valoresFormFinanciera: ClientesInfoFinanciera;
@@ -71,7 +73,7 @@ export class CrearClienteComponent implements OnInit {
 
     this.ClienteServise.crearClientes(data).subscribe({
       next: (resp: any) => {
-        console.log('Usuario creado', resp);
+        console.log('Cliente creado', resp);
 
         Swal.fire({
           title: 'cliente creado  ' + resp.cliente.nombres,
@@ -102,5 +104,8 @@ export class CrearClienteComponent implements OnInit {
   recibirInfoFinanciera(valores: ClientesInfoFinanciera) {
     console.log('estos son los valores', valores);
     this.valoresFormFinanciera = valores;
+  }
+  get ROUTER_APP() {
+    return ROUTER_APP;
   }
 }

@@ -5,17 +5,23 @@ import { environment } from '../../../environments/environment';
 import { Observable, catchError, map, of, pipe, tap } from 'rxjs';
 import { Router } from '@angular/router';
 import { UsuarioModel } from '../../core/interface/models/usuario.models';
+import { ROUTER_APP } from '../../core/enum/router-app.enum';
 
 const base_url = environment.base_url;
 
 @Injectable({
   providedIn: 'root',
 })
-export class AuntenticacionService {
+export class AutenticacionService {
 
 usuario: UsuarioModel | undefined;
 
   constructor(private httpClient: HttpClient, private router: Router) {}
+
+  get nombres():String{
+
+    return this.usuario.nombres;
+  }
 
   get token(): string {
     return localStorage.getItem('token') || '';
@@ -31,10 +37,21 @@ usuario: UsuarioModel | undefined;
       map((resp: any) =>{
         const {
           _id,
-          nombre,
-          email,
+          nombres,
+          apellidos,
+          fechaNacimiento,
+          CiudadNacimiento,
           tipoDocumento,
           numeroDocumento,
+          paisExpedicion,
+          ciudadExpedicion,
+          fechaExpedicion,
+          estadoCivil,
+          direccion,
+          ciudadResidencia,
+          departamentoResidencia,
+          telefono,
+          email,
           login,
           password,
           rol,
@@ -44,15 +61,26 @@ usuario: UsuarioModel | undefined;
 
         this.usuario = new UsuarioModel(
           _id,
-          nombre,
-          email,
+          nombres,
+          apellidos,
+          fechaNacimiento,
+          CiudadNacimiento,
           tipoDocumento,
           numeroDocumento,
+          paisExpedicion,
+          ciudadExpedicion,
+          fechaExpedicion,
+          estadoCivil,
+          direccion,
+          ciudadResidencia,
+          departamentoResidencia,
+          telefono,
+          email,
           login,
-          password,
           rol,
           estado,
           createdAt,
+          password,
         );
         localStorage.setItem('token', resp.token)
           return true;
@@ -77,6 +105,6 @@ usuario: UsuarioModel | undefined;
 
   logOut() {
     localStorage.removeItem('token');
-    this.router.navigateByUrl('login');
+    this.router.navigateByUrl(ROUTER_APP.HOME);
   }
 }
