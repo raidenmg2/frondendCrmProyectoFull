@@ -1,0 +1,12 @@
+.formulario {
+  background-image: linear-gradient(rgb(58, 58, 233), rgb(24, 128, 188));
+  color: #fff;
+}
+
+.btn {
+  background-image: linear-gradient(rgb(244, 244, 254), rgb(24, 128, 188));
+}
+
+.bar {
+  color: #fff;
+}

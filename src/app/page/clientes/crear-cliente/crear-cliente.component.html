@@ -1,0 +1,278 @@
+<nav class="navbar navbar-light bg-light">
+  <div class="container-fluid var-top">
+    <a class="navbar-brand" href="#" alt="imagen">
+      <img src="./assets/logoIni.png" alt="logo" width="58px" />
+    </a>
+
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="offcanvas"
+      data-bs-target="#offcanvasNavbar"
+      aria-controls="offcanvasNavbar"
+    >
+      <span class="navbar-toggler-icon"></span>
+      <img src="./assets/login.png" alt="login" width="58px" />
+    </button>
+    <div
+      class="offcanvas offcanvas-end"
+      tabindex="-1"
+      id="offcanvasNavbar"
+      aria-labelledby="offcanvasNavbarLabel"
+    >
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Offcanvas</h5>
+        <button
+          type="button"
+          class="btn-close text-reset"
+          data-bs-dismiss="offcanvas"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="offcanvas-body">
+        <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Link</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a
+              class="nav-link dropdown-toggle"
+              href="#"
+              id="dropdownId"
+              data-bs-toggle="dropdown"
+              aria-haspopup="true"
+              aria-expanded="false"
+              >Dropdown</a
+            >
+            <div class="dropdown-menu" aria-labelledby="dropdownId">
+              <a class="dropdown-item" href="#">Action 1</a>
+              <a class="dropdown-item" href="#">Action 2</a>
+            </div>
+          </li>
+        </ul>
+        <form class="d-flex">
+          <input
+            class="form-control me-2"
+            type="search"
+            placeholder="Search"
+            aria-label="Search"
+          />
+          <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="bar-vertical col-4 col-sm-auto">
+      <nav class="menu d-flex d-sm-block justifi-content-center flex-wrap">
+        <a href="consultarCliente"> <span>Gestion de clientes</span></a>
+        <a href="/">Cerrar sesión</a>
+      </nav>
+    </div>
+
+    <main class="main col">
+      <div class="columna col-12 ">
+        <div>
+          <!-- Aqui va el contenido de la pagina  -->
+          <div class="container" >
+            <div class="row">
+              <h2 class="text-center mt-4">
+                Formulario de vinculación Cliente Nuevo
+              </h2>
+              <div class=" mx-auto">
+                
+                  <app-stepper [linearModeSelected]="false" #appStepper>
+                    <cdk-step [label]="'InformationBasica'">
+                      <app-informacion-basica
+                        (valoresFormulario)="recibirInfoBasica($event)"
+                      ></app-informacion-basica>
+                    </cdk-step>
+                    <cdk-step [label]="'Contacto'">
+                      <app-informacion-contacto
+                        (valoresFormulario)="recibirInfoContacto($event)"
+                      ></app-informacion-contacto>
+                    </cdk-step>
+                    <cdk-step [label]="'financiera'">
+                      <app-informacion-financiera
+                        (valoresFormulario)="recibirInfoFinanciera($event)"
+                      ></app-informacion-financiera>
+                    </cdk-step>
+                    <cdk-step [label]="'fin'">
+                      <app-fin-formulario></app-fin-formulario>
+                      <button type="button" (click)="crearCliente()" class="btn btn-outline-primary">
+                        Crear Cliente
+                      </button>
+                    </cdk-step>
+                  </app-stepper>
+               
+              </div>
+            </div>
+          </div>
+          <!-- Aqui termina el contenido de la pagina -->
+        </div>
+      </div>
+    </main>
+  </div>
+</div>
+
+<!-- <nav
+  class="navbar bg-primary"
+  data-bs-theme="dark"
+  style="background-image: linear-gradient(rgb(58, 58, 233), rgb(24, 128, 188))"
+>
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Crear Cliente</a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNav"
+      aria-controls="navbarNav"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#"
+            >Cerrar sesión</a
+          >
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Features</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Pricing</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="content">
+  <div class="container mt-3 p-4 mb-5">
+    <form [formGroup]="clienteForm" (submit)="crearCliente()">
+      <legend>
+        <h1><strong>Formulario para crear Cliente </strong></h1>
+      </legend>
+      <label for="Nombres">Nombres:</label>
+      <input
+        type="text"
+        formControlName="nombres"
+        placeholder="Ingrese nombre"
+      />
+      <label for="apellidos">Apellidos:</label>
+      <input
+        type="text"
+        formControlName="apellidos"
+        placeholder="Ingrese nombre"
+      />
+      <label for="fechaNacimiento">Fecha de Nacimiento</label>
+      <input
+        type="date"
+        formControlName="fechaNacimiento"
+        placeholder="Ingrese fecha de nacimiento"
+      />
+      <label for="ciudadNacimiento">Ciudad de Nacimiento</label>
+      <input
+        type="text"
+        formControlName="ciudadNacimiento"
+        placeholder="Ingrese fecha de nacimiento"
+      />
+      <label for="tipoDocumento">Tipo de Documento:</label>
+      <select id="tipoDocumento" formControlName="tipoDocumento">
+        <option value="#">------</option>
+        <option value="Cedula de ciudadania">Cedula de ciudadania</option>
+        <option value="Cedula de extrangeria">Cedula de extranjeria</option>
+        <option value="pasaporte">pasaporte</option>
+        <option value="tarjeta de identidad">Tarjeta de identidad</option>
+        <option value="registro civil">Registro cvil</option>
+      </select>
+
+      <label for="numeroDocumento">Numero de Documento:</label>
+      <input
+        type="text"
+        formControlName="numeroDocumento"
+        placeholder="Ingrese el Numero Documento"
+      />
+
+      <label for="paisExpedicion">Pais de expedicion</label>
+      <input
+        type="text|"
+        formControlName="paisExpedicion"
+        placeholder="Ingrese fecha de nacimiento"
+      />
+      <label for="ciudadExpedicion">ciudad de Expedicion</label>
+      <input
+        type="text|"
+        formControlName="ciudadExpedicion"
+        placeholder="Ingrese fecha de nacimiento"
+      />
+      <label for="fechaExpedicion">fecha de Expedicion</label>
+      <input
+        type="date"
+        formControlName="fechaExpedicion"
+        placeholder="Ingrese fecha de nacimiento"
+      />
+      <label for="estadoCivil">Estado Civil</label>
+      <input
+        type="text"
+        formControlName="estadoCivil"
+        placeholder="Ingrese fecha de nacimiento"
+      />
+      <label for="direccion">Dirección:</label>
+      <input
+        type="text"
+        formControlName="direccion"
+        placeholder="Ingrese la direccion"
+      />
+
+      <label for="ciudadResidencia">ciudad de Residencia</label>
+      <input
+        type="text"
+        formControlName="ciudadResidencia"
+        placeholder="Ingrese fecha de nacimiento"
+      />
+      <label for="departamentoResidencia">Departamento de residencia</label>
+      <input
+        type="text"
+        formControlName="departamentoResidencia"
+        placeholder="Ingrese fecha de nacimiento"
+      />
+      <label for="telefono">Telefono:</label>
+      <input
+        type="text"
+        formControlName="telefono"
+        placeholder="Ingrese el telefono"
+      />
+
+      <label for="email">Email:</label>
+      <input
+        type="email"
+        formControlName="email"
+        placeholder="Ingrese el email del cliente"
+      /> -->
+
+<!-- <label for="cbox2">Cliente activo </label>
+            <input type="checkbox" id="cbox2" value="second_checkbox" /> -->
+
+<!-- <button type="submit">Crear Cliente</button>
+
+      <button type="button">
+        <a routerLink="./../consultarCliente">Cancelar</a>
+      </button>
+    </form>
+  </div>
+</div>
+ -->

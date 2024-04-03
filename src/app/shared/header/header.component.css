@@ -1,0 +1,11 @@
+/* li,
+a {
+  display: inline;
+  color: rgb(238, 229, 229);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+li:hover {
+  background-color: rgba(81, 81, 244, 0.2);
+} */

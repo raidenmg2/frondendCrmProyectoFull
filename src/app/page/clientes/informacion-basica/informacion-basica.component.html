@@ -1,0 +1,135 @@
+<div class="mt-4">
+  <form [formGroup]="informacionBasicaForm" >
+  <div class="row">
+    <div class="col-md-6">
+      <div class="form-floating mb-3">
+        <input type="text" id="nombres" class="form-control" formControlName="nombres" placeholder="Nombres" />
+        <label for="nombres">Nombres</label>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="form-floating mb-3">
+        <input type="text" id="apellidos" class="form-control" formControlName="apellidos" placeholder="Apellidos" />
+        <label for="apellidos">Apellidos</label>
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <div class="form-floating mb-3">
+        <input
+        type="date"
+        id="fechaNacimiento"
+        class="form-control"
+        placeholder="Fecha de nacimiento"
+        formControlName="fechaNacimiento"
+        />
+        <label for="fechaNacimiento">Fecha de nacimiento</label>
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <div class="form-floating mb-3">
+        <input
+        type="text"
+        id="ciudadNacimiento"
+        class="form-control"
+        placeholder="Ciudad de nacimiento"
+        formControlName="ciudadNacimiento"
+        />
+        <label for="ciudadNacimiento">Ciudad de nacimiento</label>
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <div class="form-floating mb-3">
+        <select
+        type="text"
+        id="tipoDocumento"
+        class="form-control"
+        placeholder="Tipo de documento"
+        formControlName="tipoDocumento"
+        >
+        <option value="#">------</option>
+        <option value="Cedula de ciudadania">Cedula de ciudadania</option>
+        <option value="Cedula de extrangeria">Cedula de extranjeria</option>
+        <option value="pasaporte">pasaporte</option>
+        <option value="tarjeta de identidad">Tarjeta de identidad</option>
+        <option value="registro civil">Registro cvil</option>
+      </select>
+      <label for="tipoDocumento">Tipo de documento</label>
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <div class="form-floating mb-3">
+        <input
+        type="text"
+        id="numeroDocumento"
+        class="form-control"
+        placeholder="Numero de documento"
+        formControlName="numeroDocumento"
+        />
+        <label for="numeroDocumento">Numero de documento</label>
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <div class="form-floating mb-3">
+        <input
+        type="text"
+        id="paisExpedicion"
+        class="form-control"
+        placeholder="Pais de expedición"
+        formControlName="paisExpedicion"
+        />
+        <label for="paisExpedicion">Pais de expedición</label>
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <div class="form-floating mb-3">
+        <input
+        type="text"
+        id="ciudadExpedicion"
+        class="form-control"
+        placeholder="Ciudad de expedición"
+        formControlName="ciudadExpedicion"
+        />
+        <label for="ciudadExpedicion">Ciudad de expedición</label>
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <div class="form-floating mb-3">
+        <input
+        type="date"
+        id="fechaExpedicion"
+        class="form-control"
+        placeholder="Fecha de expedición"
+        formControlName="fechaExpedicion"
+        />
+        <label for="fechaExpedicion">Fecha de expedición</label>
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <div class="form-floating mb-3">
+        <select type="text" id="estadoCivil" class="form-control" placeholder="Estado civil" formControlName="estadoCivil">
+          <option value="#">------</option>
+          <option value="soltero">Soltero</option>
+          <option value="casado">Casado</option>
+          <option value="divorciado">Divorciado</option>
+          <option value="union Libre">Unión libre</option>
+          <option value="otro">Otro</option>
+        </select>
+        <label for="estadoCivil">Estado civil</label>
+      </div>
+    </div>
+  </div>
+  <div class="d-flex justify-content-end flex-row mb-5 mt-4">
+    <button type="button" (click)="submitInformacionBasica()" class="btn btn-outline-primary" cdkStepperNext>
+      Ingresar información de contacto <i class="fa fa-angle-right"></i>
+    </button>
+  </div>
+</form>
+</div>

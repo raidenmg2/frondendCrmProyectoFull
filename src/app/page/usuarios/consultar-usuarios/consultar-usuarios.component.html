@@ -1,0 +1,150 @@
+<nav class="navbar navbar-light bg-light ">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#" alt="imagen">
+        
+        <img src="./assets/logoIni.png" alt="logo" width="58px" />
+      
+      </a>
+      
+      
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="offcanvas"
+        data-bs-target="#offcanvasNavbar"
+        aria-controls="offcanvasNavbar"
+      >
+      <span class="navbar-toggler-icon"></span>
+      <img src="./assets/login.png" alt="login" width="58px" />
+      </button>
+      <div
+        class="offcanvas offcanvas-end"
+        tabindex="-1"
+        id="offcanvasNavbar"
+        aria-labelledby="offcanvasNavbarLabel"
+      >
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title" id="offcanvasNavbarLabel">
+            Offcanvas
+          </h5>
+          <button
+            type="button"
+            class="btn-close text-reset"
+            data-bs-dismiss="offcanvas"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="offcanvas-body">
+          <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+            <li class="nav-item">
+              <a
+                class="nav-link active"
+                aria-current="page"
+                href="#"
+                >Home</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Link</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                id="dropdownId"
+                data-bs-toggle="dropdown"
+                aria-haspopup="true"
+                aria-expanded="false"
+                >Dropdown</a
+              >
+              <div
+                class="dropdown-menu"
+                aria-labelledby="dropdownId"
+              >
+                <a class="dropdown-item" href="#"
+                  >Action 1</a
+                >
+                <a class="dropdown-item" href="#"
+                  >Action 2</a
+                >
+              </div>
+            </li>
+          </ul>
+          <form class="d-flex">
+            <input
+              class="form-control me-2"
+              type="search"
+              placeholder="Search"
+              aria-label="Search"
+            />
+            <button class="btn btn-outline-success" type="submit">
+              Search
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </nav>
+  
+  
+  <div class="container-fluid">
+    <div class="row">
+      <div class="bar-vertical col-4 col-sm-auto">
+        <nav class="menu d-flex d-sm-block justifi-content-center flex-wrap">
+          <a href="consultarUsuarios"> <span>Gestion de usuarios</span></a>
+          <a href="/">Cerrar sesión</a>
+        </nav>
+      </div>
+  
+      <main class="main col-10">
+        <div class="tabla">
+            <!-- <button class="btn btn-success" (click)="AgregarUsuario()">Crear Usuario</button> -->
+          </div>
+            <table >
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>nombre</th>
+                        <th>email</th>
+                        <th>tipoDocumento</th>
+                        <th>numeroDocumento</th>
+                        <th>Rol</th>
+                        <th>estado</th>
+                        <th>acciones</th>
+                    </tr>           
+                    
+                </thead>
+            <tbody>
+                <!-- @for (usuario of usuarios; track $index) {
+                    <tr>
+                        <td>{{usuario._id}} </td>
+                        <td> {{usuario.nombre}}</td>
+                        <td> {{usuario.email}}</td>
+                        <td> {{usuario.tipoDocumento}}</td>
+                        <td> {{usuario.numeroDocumento}}</td>
+                        <td> 
+                          <select class="form-control" [(ngModel)]="usuario.rol" (change)="actualizarRol(usuario)">
+                          @for (rol of roles; track $index) {
+                              <option [value]="rol">{{rol}}</option>
+                          }
+      
+                          </select>
+      
+                        </td>
+                        <td> {{usuario.estado}}</td>
+                      
+                         <td>
+                         <button type="button" class="btn btn-info">Editar</button>
+                         <button type="button" class="btn btn-primary">Actualizar</button>
+                         <button type="button" class="btn btn-danger" (click)="eliminarUsuario(usuario._id)" >Eliminar</button>
+                         </td>
+                     
+                               
+                      </tr>
+                    } -->
+                </tbody>
+            </table>
+      </main>
+    </div>
+    <div class="row"></div>
+  </div>

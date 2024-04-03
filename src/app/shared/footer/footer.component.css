@@ -1,0 +1,36 @@
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 2rem;
+  overflow: hidden;
+  position: relative;
+  left: 0;
+  width: 100%;
+  bottom: 0;
+  background-image: linear-gradient(rgb(58, 58, 233), rgb(24, 128, 188));
+}
+li {
+  float: left;
+}
+
+li a,
+p {
+  display: inline;
+  color: white;
+  text-align: center;
+  padding: 14px;
+  text-decoration: none;
+}
+
+li a:hover {
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+p {
+  text-align: right;
+  margin-left: 30rem;
+}
+
+/* .linkFooter {
+  margin-left: 200px;
+} */

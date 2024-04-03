@@ -1,0 +1,183 @@
+<nav class="navbar navbar-light bg-light ">
+  <div class="container-fluid var-top">
+    <a class="navbar-brand" href="#" alt="imagen">
+      
+      <img src="./assets/logoIni.png" alt="logo" width="58px" />
+    
+    </a>
+    
+    
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="offcanvas"
+      data-bs-target="#offcanvasNavbar"
+      aria-controls="offcanvasNavbar"
+    >
+    <span class="navbar-toggler-icon"></span>
+    <img src="./assets/login.png" alt="login" width="58px" />
+    </button>
+    <div
+      class="offcanvas offcanvas-end"
+      tabindex="-1"
+      id="offcanvasNavbar"
+      aria-labelledby="offcanvasNavbarLabel"
+    >
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasNavbarLabel">
+          Offcanvas
+        </h5>
+        <button
+          type="button"
+          class="btn-close text-reset"
+          data-bs-dismiss="offcanvas"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="offcanvas-body">
+        <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+          <li class="nav-item">
+            <a
+              class="nav-link active"
+              aria-current="page"
+              href="#"
+              >Home</a
+            >
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Link</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a
+              class="nav-link dropdown-toggle"
+              href="#"
+              id="dropdownId"
+              data-bs-toggle="dropdown"
+              aria-haspopup="true"
+              aria-expanded="false"
+              >Dropdown</a
+            >
+            <div
+              class="dropdown-menu"
+              aria-labelledby="dropdownId"
+            >
+              <a class="dropdown-item" href="#"
+                >Action 1</a
+              >
+              <a class="dropdown-item" href="#"
+                >Action 2</a
+              >
+            </div>
+          </li>
+        </ul>
+        <form class="d-flex">
+          <input
+            class="form-control me-2"
+            type="search"
+            placeholder="Search"
+            aria-label="Search"
+          />
+          <button class="btn btn-outline-success" type="submit">
+            Search
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="bar-vertical col-4 col-sm-auto">
+      <nav class="menu d-flex d-sm-block justifi-content-center flex-wrap">
+        <a href="consultarCliente"> <span>Gestion de clientes</span></a>
+
+        <a href="/">Cerrar sesión</a>
+      </nav>
+    </div>
+
+    <main class="main col-10">
+     
+        <div class="columna col-12">
+          <div class="table-responsive ">
+          <div>
+            <button class="btn btn-success" (click)="AgregarCliente()">
+              Crear clientes
+            </button>
+          </div>
+          <table class="table table-primary table-striped align-middle">
+            <thead>
+              <tr class="align-bottom">
+                <th>Id</th>
+                <th>nombres</th>
+                <th>apellidos</th>
+                <th>Fecha de nacimiento</th>
+                <th>Ciudad de nacimiento</th>
+                <th>tipoDocumento</th>
+                <th>numeroDocumento</th>
+                <th>Pais de expedición</th>
+                <th>Ciudad de expedición</th>
+                <th>Fecha de expedición</th>
+                <th>Estado civil</th>
+                <th>direccion</th>
+                <th>Ciudad de residencia</th>
+                <th>Departamento de residencia</th>
+                <th>telefono</th>
+                <th>email</th>
+                <th>actividad economica</th>
+                <th>estado</th>
+                <th>acciones</th>
+              </tr>
+            </thead>
+            <tbody>
+              @for (cliente of misClientes; track $index) {
+              <tr class="align-bottom" >
+                <td class="align-top" >{{ cliente._id }}</td>
+                <td class="align-top" >{{ cliente.nombres }}</td>
+                <td class="align-top">{{ cliente.apellidos }}</td>
+                <td class="align-top">{{ cliente.fechaNacimiento }}</td>
+                <td class="align-top">{{ cliente.ciudadNacimiento }}</td>
+                <td class="align-top">{{ cliente.tipoDocumento }}</td>
+                <td class="align-top">{{ cliente.numeroDocumento }}</td>
+                <td class="align-top">{{ cliente.paisExpedicion }}</td>
+                <td class="align-top">{{ cliente.ciudadExpedicion }}</td>
+                <td class="align-top">{{ cliente.fechaExpedicion }}</td>
+                <td class="align-top">{{ cliente.estadoCivil }}</td>
+                <td class="align-top">{{ cliente.direccion }}</td>
+                <td class="align-top">{{ cliente.ciudadResidencia }}</td>
+                <td class="align-top">{{ cliente.departamentoResidencia }}</td>
+                <td class="align-top">{{ cliente.telefono }}</td>
+                <td class="align-top">{{ cliente.email }}</td>
+                <td class="align-top">{{ cliente.actividadEconomica }}</td>
+                <td class="align-top">{{ cliente.estado }}</td>
+                <td class="align-top">
+                  <button type="button" class="btn btn-info">Editar</button>
+                  <button type="button" class="btn btn-primary">Actualizar</button>
+                  <button
+                    type="button"
+                    class="btn btn-danger"
+                    (click)="eliminarCliente(cliente._id)"
+                  >
+                    Eliminar
+                  </button>
+                </td>
+              </tr>
+              }
+            </tbody>
+          </table>
+        </div>
+        </div>
+      
+    </main>
+
+
+  </div>
+ 
+</div>
+
+
+
+
+
+
+
