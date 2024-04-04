@@ -39,6 +39,7 @@ export class CrearClienteComponent implements OnInit {
   informacionContactoComponent: InformacionContactoComponent;
   @ViewChild(InformacionFinancieraComponent)
   informacionFinancieraComponent: InformacionFinancieraComponent;
+  
   valoresFormBasico: ClientesInfoBasica;
   valoresFormContacto: ClientesInfoContacto;
   valoresFormFinanciera: ClientesInfoFinanciera;

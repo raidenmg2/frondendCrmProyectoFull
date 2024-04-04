@@ -1,0 +1,40 @@
+<form [formGroup]="informacionOportunidadForm">
+  <div class="mt-4">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form-floating mb-3">
+          <input
+            type="text"
+            id="oportunidad"
+            class="form-control"
+            formControlName="oportunidad"
+            placeholder="nombre oportunidad"
+          />
+          <label for="oportunidad">Oportunidad</label>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-floating mb-3">
+          <input
+            type="text"
+            id="gestion"
+            class="form-control"
+            formControlName="gestion"
+            placeholder="gestión"
+          />
+          <label for="gestion">Gestión</label>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="d-flex justify-content-between flex-row mb-5 mt-4">
+    <button
+      type="button"
+      (click)="submitInformacionOportunidad()"
+      class="btn btn-outline-primary"
+      cdkStepperNext
+    >
+      ingresar información de la oportunidad <i class="fa fa-angle-right"></i>
+    </button>
+  </div>
+</form>

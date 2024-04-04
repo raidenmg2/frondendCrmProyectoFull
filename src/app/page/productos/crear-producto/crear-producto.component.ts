@@ -13,7 +13,6 @@ import { CaracteristicasTecnicasInterface } from '../../../core/interface/produc
 import { DistribuidorInterface } from '../../../core/interface/producto-info-distribuidor.interface';
 import { ROUTER_APP } from '../../../core/enum/router-app.enum';
 import { ProductosService } from '../../../services/productos/productos.service';
-import { ProductoFormularioInterface } from '../../../core/interface/productoFormulario.inteface';
 import Swal from 'sweetalert2';
 import { FinFormProductoComponent } from '../fin-form-producto/fin-form-producto.component';
 import { CrearProductoInterface } from '../../../core/interface/producto.interface';

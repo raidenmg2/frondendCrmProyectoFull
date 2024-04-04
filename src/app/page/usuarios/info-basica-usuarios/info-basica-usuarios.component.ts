@@ -104,11 +104,7 @@ export class InfoBasicaUsuariosComponent implements OnInit {
             estadoCivil,
           } = resp.usuario;
           this.usuarioSelecionado = resp.usuario;
-
-          console.log(
-            'Valor id usuario seleccionado metodo buscar',
-            this.usuarioSelecionado._id
-          );
+      
 
           this.informacionBasicaForm.setValue({
             nombres: nombres,
@@ -169,10 +165,7 @@ export class InfoBasicaUsuariosComponent implements OnInit {
   }
 
   submitInformacionBasica() {
-    console.log('información', this.informacionBasicaForm.value);
-    console.log('id enviado', this.usuarioSelecionado._id);
     this.valoresFormulario.emit(this.informacionBasicaForm.value);
-   
   }
 
   resetearFormulario() {

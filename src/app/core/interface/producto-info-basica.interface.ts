@@ -4,9 +4,9 @@ export interface ProductoInfoBasicaInterface {
     /** se definien las propiedades del objeto en este caso la interface */
         
     nombre: string;
-    descripcion:string;
     precio: number;
     categoria: string;
+    descripcion?:string;
    
 
 }

@@ -21,7 +21,6 @@ import { UsuariosService } from '../../../services/usuarios/usuarios.service';
 export class InfoCaracteristicasFisicasComponent implements OnInit {
   enviarFormulario: any;
   usuarioSelecionado: ProductoModel;
-
   informacionCaracteristicasFisicasForm: FormGroup;
   @Output() valoresFormulario: EventEmitter<CaracterisiticasFisicasInterface> =
   new EventEmitter<CaracterisiticasFisicasInterface>();

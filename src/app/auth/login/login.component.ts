@@ -56,10 +56,10 @@ export class LoginComponent {
     this.autenticacionService.login(data).subscribe({
       next: (resp: any) => {
         if (resp && resp.usuario) {
-          const { nombre: nombres, login, email } = resp.usuario;
+          const { nombre: nombres, login, email, apellidos } = resp.usuario;
 
           Swal.fire({
-            html: `Bienvenido ${nombres}`,
+            html: `Bienvenido ${apellidos}`,
           }).then(() => {
             this.router.navigateByUrl(ROUTER_APP.DASHBOARD);
           });

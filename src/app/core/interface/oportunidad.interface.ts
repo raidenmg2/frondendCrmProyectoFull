@@ -12,3 +12,11 @@ export interface OportunidadInterface {
     usuario?: UsuarioCreadorInterface
     }
     
+    export interface OportunidadInfoBasicaInterface {
+        /** se definien las propiedades del objeto en este caso la interface */
+        oportunidad: string,        
+        gestion: string,
+         
+       
+        }
+    

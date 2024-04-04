@@ -85,7 +85,7 @@ export class ConsultarUsuariosComponent implements OnInit, OnDestroy {
     actualizarRol(usuario: UsuarioModel) {
       this.usuarioService.actualizarUnUsuario(usuario).subscribe((resp: any) => {
         Swal.fire(
-          'Actializado',
+          'Actualizado',
           `se actualizo el usuario ${resp.usuario.nombres}`,
           'success'
         );
