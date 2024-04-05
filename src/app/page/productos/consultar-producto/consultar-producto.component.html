@@ -33,7 +33,6 @@
                 <th>Descripción</th>
                 <th>Distribuidor</th>
                 <th>Estado</th>
-                <th>Usuario</th>
                 <th>Acciones</th>
               </tr>
             </thead>
@@ -64,16 +63,12 @@
                 <td>{{ producto.distribuidor.razonSocial }}</td>
                 <td>{{ producto.estado }}</td>
 
-                
-                <td>{{ producto.usuario.nombres }}
-                    {{ producto.usuario.email }}
-                </td>
+               
+             
 
                 <td>
                   <button type="button" class="btn btn-info">Editar</button>
-                  <button type="button" class="btn btn-primary">
-                    Actualizar
-                  </button>
+                  
                   <button type="button" class="btn btn-danger">Eliminar</button>
                 </td>
               </tr>

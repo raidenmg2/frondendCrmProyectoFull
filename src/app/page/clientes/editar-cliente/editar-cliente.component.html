@@ -1,1 +1,54 @@
 <app-header></app-header>
+
+<div class="container-fluid">
+    <div class="row">
+      <div class="bar-vertical col-4 col-sm-auto">
+        <nav class="menu d-flex d-sm-block justifi-content-center flex-wrap">
+          <a [routerLink]="ROUTER_APP.CONSULTAR_CLIENTES"> <span>Volver</span></a>
+        </nav>
+      </div>
+  
+      <main class="main col">
+        <div class="columna col-12 ">
+          <div>
+            <!-- Aqui va el contenido de la pagina  -->
+            <div class="container" >
+              <div class="row">
+                <h2 class="text-center mt-4">
+                  Editar Cliente
+                </h2>
+                <div class=" mx-auto">
+                  
+                    <app-stepper [linearModeSelected]="false" #appStepper>
+                      <cdk-step [label]="'Information Basica'">
+                        <app-informacion-basica
+                          (valoresFormulario)="recibirInfoBasicaCliente($event)"
+                        ></app-informacion-basica>
+                      </cdk-step>
+                      <cdk-step [label]="'Information Contacto'">
+                        <app-informacion-contacto
+                          (valoresFormulario)="recibirInfoContactoCliente($event)"
+                        ></app-informacion-contacto>
+                      </cdk-step>
+                      <cdk-step [label]="'Information login'">
+                        <app-informacion-financiera
+                          (valoresFormulario)="recibirInfoFinancieraCliente($event)"
+                        ></app-informacion-financiera>
+                      </cdk-step>
+                      <cdk-step [label]="'fin'">
+                        <app-fin-formulario></app-fin-formulario>
+                        <button type="button" (click)="actualizarCliente()" class="btn btn-outline-primary">
+                          Actualizar Usuario
+                        </button>
+                      </cdk-step>
+                    </app-stepper>
+                 
+                </div>
+              </div>
+            </div>
+            <!-- Aqui termina el contenido de la pagina -->
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>

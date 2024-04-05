@@ -29,7 +29,7 @@ export class ClientesService {
     return this.httpClient.get(`${base_url}/cliente`, this.headers);
   }
 
-  crearClientes(cliente: ClienteModel) {
+  crearClientes(cliente: ClientesFormularioInterface) {
     return this.httpClient.post(`${base_url}/cliente`, cliente, this.headers);
   }
   eliminarUnCliente(id: string) {
@@ -38,6 +38,14 @@ export class ClientesService {
 
   getUnCliente(id:string) {
     return this.httpClient.get(`${base_url}/cliente/${id}`, this.headers);
+  }
+
+  actualizarUnCliente(cliente: ClienteModel) {
+    return this.httpClient.put(
+      `${base_url}/cliente/${cliente._id}`,
+      cliente,
+      this.headers
+    );
   }
 
   obtenerHistorial(id: string) {

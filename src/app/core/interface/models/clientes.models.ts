@@ -1,7 +1,7 @@
 export class ClienteModel {
     constructor(
       
-    //   public readonly _id: number,
+      public readonly _id: number,
      public nombres: String,
      public apellidos:String,
      public fechaNacimiento: String,

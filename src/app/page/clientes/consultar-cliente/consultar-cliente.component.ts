@@ -41,12 +41,10 @@ export class ConsultarClienteComponent implements OnInit {
     });
   }
   editarClientes(id: string) {
-    this.router.navigateByUrl(`${ROUTER_APP.CREAR_CLIENTES}/${id}`);
+    this.router.navigateByUrl(`${ROUTER_APP.EDITAR_CLIENTES}/${id}`);
   }
 
-  actualizarClientes(id: string) {
-    this.router.navigateByUrl(`${ROUTER_APP.CREAR_CLIENTES}/${id}`);
-  }
+
 
   eliminarCliente(idCliente: string): void {
     this.clienteService.eliminarUnCliente(idCliente).subscribe((resp: any) => {

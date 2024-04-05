@@ -10,6 +10,10 @@ import {
 } from '@angular/forms';
 import { ClientesService } from '../../../services/clientes/clientes.service';
 import { ClientesInfoContacto } from '../../../core/interface/clientes-info-contacto';
+import { ActivatedRoute } from '@angular/router';
+
+import { ClienteModel } from '../../../core/interface/models/clientes.models';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-informacion-contacto',
@@ -30,8 +34,10 @@ export class InformacionContactoComponent implements OnInit {
   informacionContactoForm: FormGroup;
   @Output() valoresFormulario: EventEmitter<ClientesInfoContacto> =
   new EventEmitter<ClientesInfoContacto>();
+  clienteSelecionado: ClienteModel;
 
-  constructor(private fb: FormBuilder) {}
+  constructor(private fb: FormBuilder,private clienteService: ClientesService,
+    private activatedRoute: ActivatedRoute) {}
 
   ngOnInit(): void {
     this.informacionContactoForm = this.fb.group({
@@ -40,6 +46,10 @@ export class InformacionContactoComponent implements OnInit {
       departamentoResidencia: new FormControl('', [Validators.required]),
       telefono: new FormControl('', [Validators.required]),
       email: new FormControl('', [Validators.email, Validators.required]),
+    });
+    this.activatedRoute.params.subscribe(({ id }) => {
+      this.buscarCliente(id);
+      
     });
   }
 
@@ -66,5 +76,53 @@ export class InformacionContactoComponent implements OnInit {
 
   resetearFormulario() {
     this.informacionContactoForm.reset();
+  }
+
+  buscarCliente(id: string) {
+    if (id !== 'nuevo') {
+      this.clienteService.getUnCliente(id).subscribe({
+        next: (resp: any) => {
+          const {
+            direccion,
+            ciudadResidencia,
+            departamentoResidencia,
+            telefono,
+            email,
+          
+            
+          } = resp.clientes;
+          this.clienteSelecionado = resp.clientes;
+
+          this.informacionContactoForm.setValue({
+            direccion:direccion,
+            ciudadResidencia:ciudadResidencia,
+            departamentoResidencia: departamentoResidencia,
+            telefono: telefono,
+            email: email,
+         
+          });
+        },
+
+        //errores
+        error: (error: any) => {
+          const errors = error?.error?.errors;
+          const errorList: string[] = [];
+
+          if (errors) {
+            Object.entries(errors).forEach(([key, value]: [string, any]) => {
+              if (value && value['msg']) {
+                errorList.push('* ' + value['msg'] + '<br>');
+              }
+            });
+          }
+
+          Swal.fire({
+            title: 'Error al buscar el cliente',
+            icon: 'error',
+            html: `${errorList.length ? errorList.join('') : error.error.msg}`,
+          });
+        },
+      });
+    }
   }
 }

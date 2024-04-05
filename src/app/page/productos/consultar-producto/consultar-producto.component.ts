@@ -3,7 +3,7 @@ import { HeaderComponent } from "../../../shared/header/header.component";
 import { ProductoModel } from '../../../core/interface/models/producto.models';
 import { Subscription } from 'rxjs/internal/Subscription';
 import { UsuarioModel } from '../../../core/interface/models/usuario.models';
-import { Router, RouterLink } from '@angular/router';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import Swal from 'sweetalert2';
 import { ROUTER_APP } from '../../../core/enum/router-app.enum';
 import { AutenticacionService } from '../../../services/autenticacion/autenticacion.service';
@@ -34,12 +34,19 @@ export class ConsultarProductoComponent {
       constructor(
         private productoService: ProductosService,
         private autenticacionService: AutenticacionService,
-        private router: Router
+        private router: Router,
+        private activatedRoute: ActivatedRoute,
       ) {}
     
       ngOnInit(): void {
+        this.productoService.getProductos().subscribe((data: any) => {
+          console.log(data);
+          this.productos = data.productos;
+        });
+
+
         this.usuarioLogin = this.autenticacionService.usuario;
-        this.cargarProductos();
+       
       }
     
       ngOnDestroy(): void {
@@ -60,15 +67,15 @@ export class ConsultarProductoComponent {
         this.router.navigateByUrl(`${ROUTER_APP.EDITAR_USUARIOS}/${id}`);
       }
       
-      cargarProductos() {
-        this.usuarioSubscription = this.productoService.getProductos()
-          .subscribe((resp: any) => {
-            this.productos = resp.productos;
-            console.log('listado productos', this.productos)
-            console.log('caracteristicas tecnicas', this.caracteristicasTectnicas)
+      // cargarProductos() {
+      //   this.usuarioSubscription = this.productoService.getProductos()
+      //     .subscribe((resp: any) => {
+      //       this.productos = resp.productos;
+      //       console.log('listado productos', this.productos)
+      //       console.log('caracteristicas tecnicas', this.caracteristicasTectnicas)
             
-          });
-      }
+      //     });
+      // }
     
       eliminarProducto(id: string) {
         if (id === this.usuarioLogin._id) {
