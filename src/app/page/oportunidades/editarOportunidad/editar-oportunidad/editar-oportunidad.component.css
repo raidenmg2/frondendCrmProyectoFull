@@ -1,0 +1,145 @@
+body {
+  background-color: #f1f1f1;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  margin: 0;
+}
+th,
+td {
+  white-space: nowrap;
+  font-size: smaller;
+}
+th {
+  background-color: #708fcd;
+}
+.bar {
+  background: rgba(255, 255, 255, 0.4);
+  margin: 0;
+  padding: 0;
+}
+.log {
+  padding-left: 406px;
+}
+.var-top {
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.4);
+  padding: 0;
+  margin-bottom: 0;
+}
+
+.container {
+  margin: 0;
+}
+.dropdown-menu {
+  margin: 17px;
+  background: #262a34;
+  color: white;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.568);
+}
+.menuperfil {
+  color: white;
+}
+
+.menuperfil:focus {
+  background: #23ea6b;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.568);
+}
+
+.cerrar:hever {
+  background-color: red;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.568);
+}
+
+.user {
+  font-size: 35px;
+}
+
+/* barra lateral**/
+
+.bar-vertical {
+  background-color: rgb(22, 22, 138);
+  color: #fff;
+  min-width: 250px;
+  min-height: 100vh;
+
+  padding: 0;
+  box-shadow: 10px 0 10px 0 rgba(0, 0, 0, 0.568);
+}
+.bar-vertical a {
+  color: #fff;
+}
+
+/* estilos del menu**/
+
+.bar-vertical .menu a {
+  display: block;
+  padding: 20px;
+  font-family: sans-serif;
+  text-decoration: none;
+  font-weight: 500;
+  border-bottom: 1px solid rgba(255, 255, 225, 0.1);
+}
+
+.bar-vertical .menu a:hover {
+  background-color: #708fcd;
+}
+
+.active {
+  background-color: #708fcd;
+}
+.bar-vertical .menu {
+  border-top: 5px #708fcd solid;
+}
+
+.bar-vertical .menu a i {
+  margin-right: 20px;
+}
+/**estilos main**/
+
+main {
+  padding-top: 40px;
+}
+
+.main .columna {
+  padding-left: 40px;
+  padding-right: 40px;
+}
+/*media querys**/
+@media screen and (max-width: 1300px) {
+  .bar-vertical {
+    min-width: auto;
+  }
+  .bar-vertical .menu .span {
+    display: none;
+  }
+
+  .bar-vertical .menu a i {
+    margin: 0;
+  }
+  .bar {
+    min-width: auto;
+  }
+
+  .dropdown-menu {
+    margin: 20px -79px 0px;
+  }
+}
+
+@media screen and (max-width: 575px) {
+  .bar-vertical {
+    height: auto;
+  }
+
+  .bar-vertical.menu a {
+    display: inline-block;
+    border-bottom: none;
+  }
+
+  .dropdown-menu {
+    margin: 20px -78px 0px;
+  }
+
+  body {
+    font-size: 16px;
+    overflow: visible;
+  }
+}

@@ -34,6 +34,7 @@
                 <td class="align-top">
                   
                 {{ oportunidad.cliente.nombres }}
+                {{ oportunidad.cliente._id }}
                 {{ oportunidad.cliente.apellidos }}
                 {{ oportunidad.cliente.telefono }}
                 {{ oportunidad.cliente.email }}
@@ -54,8 +55,9 @@
                 <td class="align-top">{{ oportunidad.gestion }}</td>
                 <td class="align-top">
                   
+                  {{ oportunidad.usuario.email}}
                   {{ oportunidad.usuario.nombres}}
-                  {{ oportunidad.usuario.email }}
+                  {{ oportunidad.usuario.numeroDocumento}}
                 
                 </td>
                 
@@ -65,12 +67,8 @@
                   class="btn btn-info"
                   (click)="editarOportunidad(oportunidad._id)"
                   
-                  >Editar</button>
-                  <button
-                  type="button"
-                  class="btn btn-primary"
-                  (click)="actualizarOportunidad(oportunidad._id)"
-                  >Actualizar</button>
+                  >Gestionar</button>
+                 
                   <button
                     type="button"
                     class="btn btn-danger"
@@ -78,13 +76,15 @@
                   >
                     Eliminar
                   </button>
+
                   <button
                     type="button"
                     class="btn btn-success"
-                    
+                    (click)="historialOportunidades(oportunidad._id)"
                   >
-                    Gestionar
+                    Historial oportunidades
                   </button>
+                 
                 </td>
               </tr>
               }

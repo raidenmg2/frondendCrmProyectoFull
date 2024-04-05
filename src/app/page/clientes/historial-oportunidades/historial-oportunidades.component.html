@@ -1,0 +1,93 @@
+
+<app-header></app-header>
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="bar-vertical col-4 col-sm-auto">
+      <nav class="menu d-flex d-sm-block justifi-content-center flex-wrap">
+        <a [routerLink]="ROUTER_APP.CREAR_OPORTUNIDADES" > <span>Crear nueva oportunidad</span></a>
+        <a  [routerLink]="ROUTER_APP.CONSULTAR_CLIENTES" >Volver</a>
+      </nav>
+    </div>
+
+    <main class="main col-10">
+     
+        <div class="columna col-12 container-fluid">
+          <div class="table-responsive table-responsive-lg">
+          <h1 class="text-center">Oportunidades comerciales por cliente</h1>
+          <table class="table table-primary table-striped ">
+            <thead id="encabezado">
+              <tr class="align-bottom">
+                <th>Id Oportunidad</th>
+                <th>Cliente</th>
+                <th>oportunidad</th>
+                <th>Producto</th>
+                <th>Gestion</th>
+                <th> Id Usuario</th>
+                <th>fecha Gestión</th>
+                <th>Notas de Interacción</th>
+              </tr>
+            </thead>
+            <tbody>
+              @for (historial of historialOportunidades; track $index) {
+              <tr class="align-bottom" >
+                <td class="align-top">{{ historial._id }}</td>
+               <td class="align-top">
+                  
+                {{ historial.cliente.nombres }}
+                {{ historial.cliente.apellidos }}
+                      
+              
+              
+              </td>
+              <td class="align-top">{{ historial.oportunidad }}</td>
+              <td class="align-top">
+                  
+                {{ historial.producto.nombre }}
+                {{ historial.producto.categoria }}
+                {{ historial.producto.descripcion }}
+                {{ historial.producto.precio | currency}}
+                           
+              
+              </td>
+              <td class="align-top">{{ historial.gestion }}</td>
+
+              
+                <td class="align-top">
+                  
+                  
+                  {{ historial.usuario}}
+                  
+                
+                </td>
+              
+              
+                <td class="align-top">
+                  
+                    {{ historial.createdAt }}
+                                    
+                  
+                  
+                  </td>
+                <td class="align-top">
+                  
+                    {{ historial.notasInteraccion }}
+                                    
+                  
+                  
+                  </td>
+              
+             
+              </tr>
+              }
+            </tbody>
+          </table>
+        </div>
+        </div>
+      
+    </main>
+
+
+  </div>
+ 
+</div>

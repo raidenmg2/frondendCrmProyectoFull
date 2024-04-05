@@ -40,6 +40,7 @@ export class InfoClienteOportunidadComponent implements OnInit {
 
   ngOnInit(): void {
     this.informacionClienteOportunidadForm = this.fb.group({
+      _id: ['', Validators.required],
       nombres: ['', Validators.required],
       apellidos: ['', Validators.required],
       numeroDocumento: ['', Validators.required],
@@ -58,9 +59,10 @@ export class InfoClienteOportunidadComponent implements OnInit {
     const nuevaOportunidad = this.informacionClienteOportunidadForm.value;
     if (this.informacionClienteOportunidadForm.valid) {
       const data: ClientesInfoBasicaOportunidadInterface = {
+        _id: nuevaOportunidad._id || '',
         nombres: nuevaOportunidad.nombres || '',
         apellidos: nuevaOportunidad.apellidos || '',
-        numeroDocumento: nuevaOportunidad. numeroDocumento|| '',
+        numeroDocumento: nuevaOportunidad.numeroDocumento || '',
         telefono: nuevaOportunidad.telefono || '',
         email: nuevaOportunidad.email || '',
       };
@@ -89,6 +91,7 @@ export class InfoClienteOportunidadComponent implements OnInit {
     const clienteEncontrado = this.clientes.find(cliente => cliente.numeroDocumento === documento);
     if (clienteEncontrado) {
       this.informacionClienteOportunidadForm.setValue({
+        _id: clienteEncontrado._id  ,
         numeroDocumento: clienteEncontrado.numeroDocumento,
         nombres: clienteEncontrado.nombres,
         apellidos: clienteEncontrado.apellidos,

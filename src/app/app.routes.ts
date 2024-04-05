@@ -22,6 +22,8 @@ import { CrearVentaComponent } from './page/ventas/crear-venta/crear-venta.compo
 import { authGuard } from './guards/auth/auth.guard';
 import { ConsultarOportunidadesComponent } from './page/oportunidades/consultarOportunidades/consultar-oportunidades/consultar-oportunidades.component';
 import { CrearOportunidadesComponent } from './page/oportunidades/crearOportunidades/crear-oportunidades/crear-oportunidades.component';
+import { HistorialOportunidadesComponent } from './page/clientes/historial-oportunidades/historial-oportunidades.component';
+import { EditarOportunidadComponent } from './page/oportunidades/editarOportunidad/editar-oportunidad/editar-oportunidad.component';
 
 export const routes: Routes = [
   {
@@ -63,6 +65,13 @@ export const routes: Routes = [
             title: 'Elminar cliente',
             component: EliminarClienteComponent,
           },
+          {
+            path:'historialOportunidades/historial/:id',
+            title:' Historial de Oportunidades',
+            component: HistorialOportunidadesComponent,
+          },
+
+
         ],
       },
       {
@@ -164,6 +173,12 @@ export const routes: Routes = [
             path:'crearOportunidades',
             title:'crearOportunidades',
             component: CrearOportunidadesComponent,
+          },
+          
+          {
+            path:'editarOportunidades/:id',
+            title:' Editar Oportunidades',
+            component: EditarOportunidadComponent,
           },
 
 

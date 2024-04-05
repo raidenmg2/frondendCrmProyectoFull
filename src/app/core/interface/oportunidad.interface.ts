@@ -9,14 +9,23 @@ export interface OportunidadInterface {
     producto: ProductoInfoBasicaInterface,
     gestion: string,
      _id?: string,
-    usuario?: UsuarioCreadorInterface
+    usuario?: UsuarioCreadorInterface,
+    notasInteraccion?: string
+    createdAt?: Date;
+    
     }
     
     export interface OportunidadInfoBasicaInterface {
         /** se definien las propiedades del objeto en este caso la interface */
         oportunidad: string,        
-        gestion: string,
-         
+        gestion: string,        
        
+        }
+
+
+        export interface gestionarOportunidadInterface{
+            nuevaestion:string ,
+            usuario: string ,
+            notasInteraccion: string
         }
     

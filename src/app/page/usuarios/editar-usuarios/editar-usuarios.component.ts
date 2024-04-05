@@ -40,7 +40,7 @@ export class EditarUsuariosComponent {
     valoresFormBasico: UsuarioInfoBasica;
     valoresFormContacto: UsuarioInfoContacto;
     valoresFormLogin: UsuarioInfoLogin;
-  usuarioSelecionado: any;
+    usuarioSelecionado: any;
 
 
     get ROUTER_APP() {

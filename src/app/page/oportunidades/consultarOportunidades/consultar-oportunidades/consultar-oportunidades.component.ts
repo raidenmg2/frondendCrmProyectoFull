@@ -55,12 +55,15 @@ export class ConsultarOportunidadesComponent implements OnInit {
 
   editarOportunidad(id: String) {
     console.log('informacion ID en metodo', id);
-    this.router.navigateByUrl(`${ROUTER_APP.EDITAR_USUARIOS}/${id}`);
+    this.router.navigateByUrl(`${ROUTER_APP.EDITAR_OPORTUNIDADES}/${id}`);
   }
 
-  actualizarOportunidad(id: String) {
-    this.router.navigateByUrl(`${ROUTER_APP.EDITAR_USUARIOS}/${id}`);
+  historialOportunidades(id: String) {
+    console.log('informacion ID en metodo', id);
+    this.router.navigateByUrl(`${ROUTER_APP.HISTORIAL_OPORTUNIDADES}/${id}`);
   }
+
+
 
   cargarOportunidades() {
     this.usuarioSubscription =
@@ -72,7 +75,7 @@ export class ConsultarOportunidadesComponent implements OnInit {
 
   eliminarOportunidad(id: string) {
     if (id === this.usuarioLogin._id) {
-      Swal.fire('error', 'No se puede elimir este usuario', 'error');
+      Swal.fire('error', 'No se puede eliminarr esta oportunidad', 'error');
     } else {
       this.OportunidadService.eliminarUnaOportunidad(id).subscribe(
         (resp: any) => {

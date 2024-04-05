@@ -1,0 +1,74 @@
+
+
+<app-header></app-header>
+<div class="container-fluid">
+    <div class="row">
+      <div class="bar-vertical col-4 col-sm-auto">
+        <nav class="menu d-flex d-sm-block justifi-content-center flex-wrap">
+          <a [routerLink]="ROUTER_APP.CONSULTAR_OPORTUNIDADES"> <span>Volver</span></a>
+        </nav>
+      </div>
+  
+      <main class="main col">
+        <div class="columna col-12 ">
+          <div>
+
+            <div class="container" >
+              <div class="row">
+                <h2 class="text-center mt-4">
+                  Gestionar Oportunidad
+                </h2>
+                <div class=" mx-auto">
+                  
+                  <form [formGroup]="gestionOportunidadForm" >                  
+                    <label for="oportunidad">Oportunidad</label>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="basic-addon1"></span>
+                        <input id="oportunidad" type="text" class="form-control" formControlName="oportunidad"
+                        placeholder="oportunidad" aria-label="oportunidad" aria-describedby="basic-addon1">
+                      </div>
+                      <label for="cliente">Cliente</label>
+                    <div class="input-group mb-3">
+                      <span class="input-group-text" id="basic-addon1"></span>
+                      <input id="cliente" type="text" class="form-control" formControlName="cliente" placeholder="cliente" aria-label="cliente" aria-describedby="basic-addon1">
+                      </div>
+
+                      <label for="producto">Producto</label>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="basic-addon1"></span>
+                        <input id="producto" type="text" class="form-control" formControlName="producto" placeholder="producto" aria-label="producto" aria-describedby="basic-addon1">
+                      </div>
+
+                      <label for="cliente">Cliente</label>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="basic-addon1"></span>
+                        <input  id="cliente" type="text" class="form-control" formControlName="gestion" placeholder="gestion" aria-label="gestion" aria-describedby="basic-addon1">
+                      </div>
+
+                      <label for="usuario">Id Usuario creador</label>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="basic-addon1"></span>
+                        <input id="usuario" type="text" class="form-control" formControlName="usuario" placeholder="usuario" aria-label="usuario" aria-describedby="basic-addon1">
+                      </div>
+                    <div class="input-group">
+                        <span class="input-group-text">Notas interacción</span>
+                        <textarea formControlName="notasInteraccion" class="form-control" aria-label="With textarea"></textarea>
+                      </div>
+                      <br>
+                      <button type="button" (click)="gestionarOportunidad()" class="btn btn-outline-primary">
+                        Guardar Gestión  <i class="fa fa-angle-right"></i>
+                     </button>
+
+
+
+                    </form>
+                 
+                </div>
+              </div>
+            </div>
+           
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>

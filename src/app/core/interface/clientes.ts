@@ -1,7 +1,7 @@
 export interface Clientes {
     /** se definien las propiedades del objeto en este caso la interface */
         
-_id: number;
+_id: string;
 nombres: String;
 apellidos:String;
 fechaNacimiento: String;

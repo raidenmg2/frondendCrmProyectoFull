@@ -40,15 +40,15 @@ export class ConsultarClienteComponent implements OnInit {
       this.misClientes = data.clientes;
     });
   }
-  editarClientes(id: number) {
+  editarClientes(id: string) {
     this.router.navigateByUrl(`${ROUTER_APP.CREAR_CLIENTES}/${id}`);
   }
 
-  actualizarClientes(id: number) {
+  actualizarClientes(id: string) {
     this.router.navigateByUrl(`${ROUTER_APP.CREAR_CLIENTES}/${id}`);
   }
 
-  eliminarCliente(idCliente: number): void {
+  eliminarCliente(idCliente: string): void {
     this.clienteService.eliminarUnCliente(idCliente).subscribe((resp: any) => {
       Swal.fire(
         'eliminado',
@@ -58,6 +58,12 @@ export class ConsultarClienteComponent implements OnInit {
     });
    
   }
+  historialOportunidades(id: String) {
+    console.log('informacion ID en metodo', id);
+    this.router.navigateByUrl(`${ROUTER_APP.HISTORIAL_OPORTUNIDADES}/${id}`);
+  }
+
+
 
   recibirData(nuevoCliente: Clientes) {
     this.misClientes.push(nuevoCliente);

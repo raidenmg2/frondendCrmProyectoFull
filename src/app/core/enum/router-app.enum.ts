@@ -4,6 +4,7 @@ export enum ROUTER_APP {
     CREAR_CLIENTES = '/dashboard/consultarCliente/crearCliente',
     EDITAR_CLIENTES = '/dashboard/consultarCliente/editarCliente',
     ELIMINAR_CLIENTES = '/dashboard/consultarCliente/eliminarCliente',
+    HISTORIAL_OPORTUNIDADES='/dashboard/consultarCliente/historialOportunidades/historial',
     DASHBOARD = '/dashboard',
     //RUTAS USUARIOS
     CONSULTAR_USUARIOS ='/dashboard/consultarUsuarios',
@@ -26,6 +27,8 @@ export enum ROUTER_APP {
     // RUTAS OPORTNUNIDADES
     CONSULTAR_OPORTUNIDADES='/dashboard/consultaOportunidades',
     CREAR_OPORTUNIDADES='/dashboard/consultaOportunidades/crearOportunidades',
+    
+    EDITAR_OPORTUNIDADES='/dashboard/consultaOportunidades/editarOportunidades',
 
 
   }

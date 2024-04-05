@@ -57,7 +57,6 @@ export class LoginComponent {
       next: (resp: any) => {
         if (resp && resp.usuario) {
           const { nombre: nombres, login, email, apellidos } = resp.usuario;
-
           Swal.fire({
             html: `Bienvenido ${apellidos}`,
           }).then(() => {

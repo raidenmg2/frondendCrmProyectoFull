@@ -2,7 +2,8 @@ import { Injectable } from '@angular/core';
 import { environment } from '../../../environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { OportunidadModel } from '../../core/interface/models/oportunidad.models';
-import { OportunidadInterface } from '../../core/interface/oportunidad.interface';
+import { OportunidadInterface, gestionarOportunidadInterface } from '../../core/interface/oportunidad.interface';
+import { Observable } from 'rxjs';
 
 const base_url = environment.base_url;
 
@@ -41,7 +42,7 @@ export class OportunidadesService {
     );
   }
 
-  actualizarUnoportunidad(oportunidad: OportunidadModel) {
+  actualizarUnoportunidad(oportunidad: OportunidadInterface) {
     return this.httpClient.put(
       `${base_url}/oportunidad/${oportunidad._id}`,
       oportunidad,
@@ -50,6 +51,12 @@ export class OportunidadesService {
   }
 
   eliminarUnaOportunidad(id: string) {
-    return this.httpClient.delete(`${base_url}/producto/${id}`, this.headers);
+    return this.httpClient.delete(`${base_url}/oportunidad/${id}`, this.headers);
   }
+
+  obtenerHistorial(id: string) {
+    return this.httpClient.get(`${base_url}/oportunidad/historial/${id}` , this.headers);
+  }
+
+
 }

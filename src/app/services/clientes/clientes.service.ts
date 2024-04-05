@@ -32,7 +32,15 @@ export class ClientesService {
   crearClientes(cliente: ClienteModel) {
     return this.httpClient.post(`${base_url}/cliente`, cliente, this.headers);
   }
-  eliminarUnCliente(id: number) {
+  eliminarUnCliente(id: string) {
     return this.httpClient.delete(`${base_url}/cliente/${id}`, this.headers);
+  }
+
+  getUnCliente(id:string) {
+    return this.httpClient.get(`${base_url}/cliente/${id}`, this.headers);
+  }
+
+  obtenerHistorial(id: string) {
+    return this.httpClient.get(`${base_url}/cliente/historial/${id}` , this.headers);
   }
 }
